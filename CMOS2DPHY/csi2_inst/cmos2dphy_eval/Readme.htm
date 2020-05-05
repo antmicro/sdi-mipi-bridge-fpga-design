@@ -1,0 +1,1539 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="iphelp_files/filelist.xml">
+<link rel=Edit-Time-Data href="iphelp_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>LatticeCORE IP Module Readme</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="country-region"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PostalCode"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="Street"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="State"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="address"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>ashimi</o:Author>
+  <o:LastAuthor>hfeng</o:LastAuthor>
+  <o:Revision>219</o:Revision>
+  <o:TotalTime>441</o:TotalTime>
+  <o:Created>2006-10-03T19:00:00Z</o:Created>
+  <o:LastSaved>2010-06-21T06:47:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1421</o:Words>
+  <o:Characters>8101</o:Characters>
+  <o:Company>Lattice Semiconductor Corp</o:Company>
+  <o:Lines>67</o:Lines>
+  <o:Paragraphs>19</o:Paragraphs>
+  <o:CharactersWithSpaces>9503</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>110</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--table.WHS1
+	{x-cell-content-align: Center;
+	border-spacing: 0px;
+	border-spacing: 0px;}
+col.whs2 {width: 100%;}
+tr.WHS3
+	{x-cell-content-align: center;}
+table.WHS5
+	{x-cell-content-align: top;
+	border-spacing: 4px;
+	border-spacing: 4px;}
+col.whs6 {width: 100px;}
+col.whs7 {width: 300px;}
+tr.WHS8
+	{x-cell-content-align: top;}
+div.WEBHELPPOPUPMENU
+	{left:0px;
+	position:absolute;
+	top:0px;
+	visibility:hidden;
+	z-index:4;}
+
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:SimSun;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:SimSun;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.webhelpnavbar, li.webhelpnavbar, div.webhelpnavbar
+	{mso-style-name:webhelpnavbar;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	text-align:right;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.table, li.table, div.table
+	{mso-style-name:table;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.bullet, li.bullet, div.bullet
+	{mso-style-name:bullet;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.msonormal0
+	{mso-style-name:msonormal;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:295767101;
+	mso-list-template-ids:1593891816;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1
+	{mso-list-id:330909628;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2021601562 -1008183850 1872950780 1375756338 -1199439710 -1990456762 -1523836294 235070938 1479282484 -1330340198;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2
+	{mso-list-id:614560566;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1438953124 999560470 964717536 -559239814 -1337281044 -1332968916 1701985288 1584275974 -1703228768 149815354;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3
+	{mso-list-id:883561075;
+	mso-list-type:hybrid;
+	mso-list-template-ids:136629634 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:54.0pt;
+	mso-level-number-position:left;
+	margin-left:54.0pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4
+	{mso-list-id:1327438358;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-630391050 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:54.0pt;
+	mso-level-number-position:left;
+	margin-left:54.0pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l5
+	{mso-list-id:1788155812;
+	mso-list-template-ids:1824700990;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l5:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l5:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l5:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l5:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l5:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l5:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l5:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l5:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l6
+	{mso-list-id:1907180906;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2024986148 -945282540 -1303980334 -1173565196 -929497328 -936585402 830118026 1468553028 810846710 1197665106;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l6:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l6:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l6:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l6:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l6:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l6:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l6:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l6:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+div.MsoNormal1 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+div.table1 {mso-style-name:table;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+li.MsoNormal1 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+li.table1 {mso-style-name:table;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoNormal1 {mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.table1 {mso-style-name:table;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE1 {mso-style-name:"";
+	mso-spl-e:yes;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--(Meta)==========================================================-->
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=3793>
+<meta name=layout-width content=660>
+<!--(Links)=========================================================--><!--(Scripts)=======================================================-->
+<script language="JavaScript"  type="text/javascript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='default.css'>");}
+//-->
+</script>
+
+<script language="JavaScript"  type="text/javascript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+
+<script language="javascript1.2"  type="text/javascript" src="whmsg.js">
+</script>
+
+<script language="JavaScript"  type="text/javascript" src="whver.js">
+</script>
+
+<script language="javascript1.2"  type="text/javascript" src="whproxy.js">
+</script>
+
+<script language="javascript1.2"  type="text/javascript" src="whutils.js">
+</script>
+
+<script language="javascript1.2"  type="text/javascript" src="whtopic.js">
+</script>
+
+<script language="javascript1.2"  type="text/javascript">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.setRelStartPage)
+	{
+	
+	}
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("ip_tutor.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="6146"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<!--(Body)==========================================================-->
+
+<body lang=ZH-CN link=blue vlink=blue style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<h1><span lang=EN-US style='font-family:Verdana;color:#ED6F25'>CMOS to MIPI D-PHY Interface Bridge Soft IP</span><span lang=EN-US style='color:navy'><o:p></o:p></span></h1>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid windowtext 1.0pt;
+mso-border-bottom-alt:solid windowtext .75pt;padding:0cm 0cm 0cm 0cm'>
+
+<div style='border-bottom:..75pt'>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid windowtext 1.0pt;
+mso-border-bottom-alt:solid windowtext .75pt;padding:0cm 0cm 0cm 0cm'>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'><a
+name=implementing></a><b><span lang=EN-US style='font-size:18.0pt;font-family:
+"Arial","sans-serif"'>IP Generation through Lattice Diamond</span></b></p>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:12.0pt'><span lang=EN-US><br>
+</span><b><span lang=EN-US style='font-family:Arial'>Generating the IP in Clarity Designer</span></b><span
+lang=EN-US><o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=3 cellpadding=0 width="80%"
+ style='width:80.0%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'> 
+  <p><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>Clarity Designer is a tool to customize 
+  modules and IPs and place them into the device’s architecture. Besides configuration and generation of 
+  modules and IPs, Clarity Designer can also create a top module template in which all generated modules 
+  and IPs are instantiated.</span><span lang=EN-US><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>&nbsp; <o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>To configure the IP in 
+  Clarity Designer : <o:p></o:p></span></p>
+  <ol type=disc>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Input valid values in the required fields in the <b
+       style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+       italic'>Configuration tab<em><span style='font-family:Verdana'></span></em></span></b>.</span>
+	   <ul type=disc>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Number of TX Channels <em><span style='font-family:Verdana'></span></em></span></b> : [Read-Only] Specify the 
+			 number of TX channels. Default is set to 1. Only 1 TX channel is supported in LIFMD device.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Number of TX Lanes <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the 
+			 number of TX lanes. 1, 2, 4 lanes are supported.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>TX Interface <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the 
+			 interface for the TX. DSI, CSI2 are supported.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>TX Gear <em><span style='font-family:Verdana'></span></em></span></b> : [Read-Only] Specify the 
+			 gearing for the TX. Only gear 8 is supported in this IP.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>RX Line Rate <em><span style='font-family:Verdana'></span></em></span></b> : [Read-Only] Specify the 
+			 RX line rate. Automatically computed based on the desired TX line rate.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>TX Line Rate <em><span style='font-family:Verdana'></span></em></span></b> : [Read-Only] Specify the 
+			 total target TX line rate. Expected to be the same with RX line rate. </span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>TX Line Rate (per lane) <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the 
+			 target TX line rate per lane. All other clocks are computed based on this input.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>			 
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>DPHY Clock Frequency <em><span style='font-family:Verdana'></span></em></span></b> : [Read-Only] Specify the 
+			 DPHY clock frequency. Automatically computed based on the desired TX line rate.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>DPHY Clock Mode <em><span style='font-family:Verdana'></span></em></span></b> :  [User-Input] Specify the 
+       TX clock mode.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Byte Clock Frequency <em><span style='font-family:Verdana'></span></em></span></b> : [Read-Only] Specify the 
+			 internal byte clock frequency. Automatically computed on from the desired TX line rate.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Pixel Clock Frequency <em><span style='font-family:Verdana'></span></em></span></b> : [Read-Only] Specify the 
+			 pixel clock frequency. Automatically computed based on the desired TX line rate.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>DCS Clock Frequency <em><span style='font-family:Verdana'></span></em></span></b> : [Read-Only] Specify the 
+			 DCS clock frequency. Automatically computed based on the desired TX line rate. Used when DCS is transmitted in High 
+             Speed mode.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>tINIT_SLAVE Value <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify delay time 
+			 for TX D-PHY TINIT requirement. Must satisfy TX D-PHY TINIT minimum requirement of 100 µs and is clocked by byte clock.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Enable miscellaneous status signals <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] 
+			 Click to enable the status signals (i.e. PLL lock)</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Bypass TINIT <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Click to disable the
+			  delay for initialization counter.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+       </ul>	   
+	   <span lang=EN-US><o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Input valid values in the required fields in the <b
+       style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+       italic'>Video tab<em><span style='font-family:Verdana'></span></em></span></b>.</span>
+	   <ul type=disc>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Data Type <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the 
+			 data type depending on the TX interface selected.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Virtual Channel <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the 
+			 Virtual Channel ID.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Word Count <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the 
+			 number of bytes within the valid payload.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Number of DCS words <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the 
+			 number of DCS words for the display if DSI is selected.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>DCS ROM Wait Time <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify delay 
+			 time for sending DCS commands. This is clocked by byte clock if DCS is in High Speed mode and DCS clock when DCS is 
+			 in Low Speed mode. This needs to be adjusted if DCS is not meeting protocol timing requirements. Normal value is 1200 
+			 based on 111.375 MHz byte clock.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>DCS Mode <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the 
+			 DCS transmission mode: High-Speed or Low-Speed</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>DCS ROM Initialization File <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the 
+			 file which contains the DCS commands to be sent to the display. Refer to the UserGuide document for the proper format.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Bypass DCS <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Click to disable the 
+             DCS transmission for the TX channel.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+       </ul>	   
+	   <span lang=EN-US><o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Go to <b
+       style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+       italic'>Protocol Timing Parameters tab<em><span style='font-family:Verdana'></span></em></span></b>. Input valid values in the required fields 
+       if customization is desired.</span>
+	   <ul type=disc>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Data HS-Prepare <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the time that the DPHY TX 
+			 drives the Data Lane LP-00 Line state immediately before the HS-0 Line state starting the HS transmission. Timing parameter is in number 
+			 of byte clock cycles. Value is initially automatically computed but can be customized.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Data HS-Zero <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the time that the DPHY TX drives 
+			 the HS-0 state prior to transmitting the Sync sequence. Timing parameter is in number of byte clock cycles. Value is initially automatically 
+			 computed but can be customized.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Clock Pre <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the time that the HS clock shall be 
+			 driven by the DPHY TX prior to any associated Data Lane beginning the transition from LP to HS mode. Timing parameter is in number of byte 
+			 clock cycles. Value is initially automatically computed but can be customized.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'><b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+             italic'>Clock Post <em><span style='font-family:Verdana'></span></em></span></b> : [User-Input] Specify the time that the DPHY TX continues 
+			 to send HS clock after the last associated Data Lane has transitioned to LP Mode. Interval is defined as the period from the end of THS-TRAIL 
+			 to the beginning of TCLK-TRAIL. Timing parameter is in number of byte clock cycles. Value is initially automatically computed but can 
+			 be customized.</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+       </ul>	   
+	   <span lang=EN-US><o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Click the <b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+       italic'>Configure<em><span style='font-family:Verdana'></span></em></span></b> button after the required parameters are selected.</span>
+	   <span lang=EN-US><o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Click <b style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+       italic'>Close<em><span style='font-family:Verdana'></span></em></span></b>. The IP will be generated.</span>
+	   <span lang=EN-US><o:p></o:p></span></li>
+  </ol>&nbsp;
+  </td>
+ </tr>
+</table>
+
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid windowtext 1.0pt;
+mso-border-bottom-alt:solid windowtext .75pt;padding:0cm 0cm 0cm 0cm'>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'><a
+name=implementing></a><b><span lang=EN-US style='font-size:18.0pt;font-family:
+"Arial","sans-serif"'>Implementing the IP Module Using Lattice Diamond</span></b></p>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:12.0pt'><span lang=EN-US><br>
+</span><b><span lang=EN-US style='font-family:Arial'>Instantiating the IP</span></b><span
+lang=EN-US><o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=3 cellpadding=0 width="80%"
+ style='width:80.0%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'> 
+  <p><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>The core modules of CMOS to MIPI D-PHY Interface Bridge Soft IP are 
+  synthesized and provided in NGO format with black box Verilog source files for synthesis. A Verilog source file named , 
+  <i>&lt;instance_name>_cmos_2_dphy_ip<span class=SpellE>.v</span></i> instantiates the black box of core modules. The top-level file 
+  <i>&lt;instance_name><span class=SpellE>.v </span></i>instantiates <i>&lt;instance_name>_cmos_2_dphy_ip<span class=SpellE>.v</span></i>
+  and DCS components. A Verilog instance template <i>&lt;instance_name&gt;_inst.v</i> or VHDL instance template <i>&lt;instance_name&gt;_inst.vhd</i>
+  is also provided as a guide for users who want to instantiate the generated soft IP top-level in their own top-level module.</span>
+  <span  lang=EN-US><o:p></o:p></span></p>
+  <p><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>The user does not need to instantiate the IP instances one by one 
+  manually. The top-level file along with the other Verilog source files are provided in <i><span class=SpellE>\&lt;project_dir>.</span></i>
+  These files are refreshed each time the IP is regenerated.<o:p></o:p></span></p>
+  <p><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'><o:p></o:p></span></p> 
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-bottom:12.0pt'><span lang=EN-US><br>
+</span><b><span lang=EN-US style='font-family:Arial'>Hardware Evaluation</span></b><span
+lang=EN-US><o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=3 cellpadding=0 width="80%"
+ style='width:80.0%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBodyText><span lang=EN-US>Lattice's IP hardware evaluation
+  capability makes it possible to create IP cores that operate in hardware for
+  a limited period of time (approximately four hours) without requiring the
+  request on an IP license. The hardware evaluation capability is enabled by
+  default. It can be disabled by Project-&gt;Active Strategy-&gt;Translate
+  Design Settings. The setting is called &quot;Hardware Evaluation&quot; and
+  the options are &quot;Enable&quot; or &quot;Disable&quot;.<br>
+  <span style='mso-spacerun:yes'> </span><br>
+  When the Hardware Evaluation feature is enabled in the design, it will
+  generate a programming file that may be downloaded into the device. After
+  initialization, the IP will be operational for approximately four hours.
+  After four hours, the device will stop working and it will be necessary to
+  reprogram the device to re-enable operation. This hardware evaluation
+  capability is only enabled if the core has not been licensed. During
+  implementation, a license check is performed. If the hardware evaluation
+  feature is disabled, a pop-up window will be displayed indicating a license
+  failure. <span class=SpellE>Click&quot;OK</span>&quot; in the window and the <span
+  class=SpellE>bitstream</span> will not be generated. If a license is
+  detected, no pop-up window is displayed and core generation is completed with
+  no restrictions. </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US><br>
+</span><b><span lang=EN-US style='font-family:Arial'>Implementing the IP in a
+Top-Level Design</span></b><span lang=EN-US><o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=3 cellpadding=0 width="80%"
+ style='width:80.0%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'> 
+  <p class=MsoNormal><span lang=EN-US><br>
+  </span><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>In Clarity Designer, the Clarity Designer 
+  project file (.sbx) is added to Lattice Diamond as a source file after all IPs are generated. Note that default 
+  Diamond strategy (.sty) and default Diamond preference file (.lpf) will be used. When using the .sbx approach, 
+  import the recommended strategy and preferences from <i>&lt;<span class=SpellE>\project_dir</span>&gt;\<span 
+  class=SpellE>cmos2dphy_eval</span>\&lt;instance_name&gt;\<span class=SpellE>impl\lifmd</span>\&lt;<span class=SpellE>
+  synplify|lse</span>&gt;</i> directories. All required   files are invoked automatically. You can directly synthesize, 
+  map and place/par the design in the Diamond   design environment after the cores are generated.<o:p></o:p></span></p>
+  <p><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>Push-button implementation of this top-level 
+  design with either Synplify or Lattice Synthesis Engine is supported via the Diamond project files  <i>&lt;instance_name&gt;_top.ldf </i></span>
+  <span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>located in <i>&lt;project_dir&gt;\cmos2dphy_eval\&lt;instance_name&gt;\<span class=SpellE>impl\lifmd</span>\&lt;<span
+class=SpellE>synplify</span>|lse&gt;</i>. <o:p></o:p></p></span>  
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>&nbsp; <o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>To
+  use the project file in Diamond:<o:p></o:p></span></p>
+  <ol type=disc>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Choose <b
+       style='mso-bidi-font-style:normal'><span style='mso-bidi-font-style:
+       italic'>File > Open <em><span style='font-family:Verdana'>&gt; </span></em>Project</span></b>
+       under the File tab in Diamond.</span><span
+       lang=EN-US><o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Browse to <i>&lt;<span
+       class=SpellE>\project_dir</span>&gt;\<span class=SpellE>cmos2dphy_eval</span>\&lt;instance_name&gt;\<span
+       class=SpellE>impl\lifmd</span>\&lt;<span class=SpellE>synplify|lse</span>&gt;</i>in
+       the Open Project dialog box.<o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Select and open <i>&lt;instance_name_top&gt;.</i>
+       <i style='mso-bidi-font-style:normal'>ldf</i>. At this point, all of the
+       files needed to support top-level synthesis and implementation will be
+       imported to the project.<o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>One <span class=SpellE>lpf</span>
+       file is available in the <i>\<span class=SpellE>impl\lifmd</span>\&lt;<span
+       class=SpellE>synplify|lse</span>&gt; </i>directory <i>&lt;instance_name&gt;_<span
+       class=GramE>top</span>.<span class=SpellE>lpf</span></i>.<o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Select the <b><span class=SpellE>Process</span></b>
+	   tab in the left-hand GUI window.<o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Implement the complete
+       design via the standard <span class=SpellE></span> Diamond GUI
+       flow.<o:p></o:p></span></li>
+  </ol>
+  </td>
+ </tr>
+</table>
+
+<p style='margin-bottom:12.0pt'><b><span lang=EN-US style='font-family:Arial'>Running
+Functional Simulation</span></b><span lang=EN-US><o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=3 cellpadding=0 width="80%"
+ style='width:80.0%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>To run simulation using Active HDL: 
+   <o:p></o:p></span></p>
+  <ol type=disc>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Modify the "do" file located in
+       <i>\&lt;project_dir&gt;\cmos2dphy_eval\&lt;instance_name&gt;\sim\aldec\</i></span>
+	   <ol type="a">
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'>Specify working directory (sim_working_folder).<br></span>
+			 <span lang=EN-US style='font-size:10.0pt;font-family:Courier'>i.e. set sim_working_folder "C:/my_design"</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'>Specify workspace name that will be created in working directory.<br></span>
+			 <span lang=EN-US style='font-size:10.0pt;font-family:Courier'>i.e. set workspace_name "design_space"</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'>Specify design name.<br></span>
+			 <span lang=EN-US style='font-size:10.0pt;font-family:Courier'>i.e. set design_name "DesignA"</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'>Specify design path where the IP Core generated using Clarity Designer is located.<br></span>
+			 <span lang=EN-US style='font-size:10.0pt;font-family:Courier'>i.e. set design_path "C:/my_designs/DesignA"</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'>Specify design instance name (same as the instance name specified in Clarity Designer).<br></span>
+			 <span lang=EN-US style='font-size:10.0pt;font-family:Courier'>i.e. set design_inst "DesignA_inst"</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'>Specify Lattice Diamond Primitive path (diamond_dir) to where it is installed.<br></span>
+			 <span lang=EN-US style='font-size:10.0pt;font-family:Courier'>i.e. set diamond_dir "C:/lscc/diamond/3.8_x64"</span>
+			 <span lang=EN-US><o:p></o:p></span></li>
+         <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+             auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+             style='font-size:10.0pt;font-family:Verdana'>Update testbench parameters to customize data size, clock and/or other settings. 
+             See additional info related to Testbench Compiler Directives below.<br>
+			 <span lang=EN-US><o:p></o:p></span></li>
+       </ol>
+	   <span lang=EN-US><o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Under the Tools Menu, select <b>Active-HDL</b>.</span>
+	   <span lang=EN-US><o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>In Active-HDL window, under the <b>Tools</b> tab, select <b>Execute Macro</b>.</span>
+	   <span lang=EN-US><o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Select the "do" file <i>&lt;<span class=SpellE>\project_dir</span>&gt;<span 
+			 class=SpellE>\cmos2dphy_eval\&lt;instance_name&gt;\sim\aldec\*.do</i></span>	   
+	   <span lang=EN-US><o:p></o:p></span></li>	  
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Select <b>OK</b>.</span>
+	   <span lang=EN-US><o:p></o:p></span></li>	   
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Wait for simulation to finish.</span>
+	   <span lang=EN-US><o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US
+       style='font-size:10.0pt;font-family:Verdana'>Below are the testbench directives which can be modified by setting 
+	   the define in the vlog command in the "do" file.<br><br></span><span lang=EN-US
+       style='font-size:10.0pt;font-family:Courier'>Example:<br>
+	   vlog \ <br>
+       +define+NUM_FRAMES=60 \<br>
+       +define+NUM_LINES=1080 \<br>
+       ....<br>
+	   * NUM_PIXELS      : Number of pixels per line<br>
+       * NUM_LINES       : Number of lines per frame <br>
+       * NUM_FRAMES      : Number of frames to be transmitted <br>
+       * PIX_CLK         : clock period in ps; used as reference clock <br>
+	   *These parameters can be manually included in a "do" file or TB define file.<br><br>
+       Optional:<br>
+       CSI2 parameters<br>
+       * INIT_DRIVE_DELAY : delay from reset deassertion or tinit_done assertion before start of transaction<br>
+       * FV_H_TO_LV_H     : used to inject delay (in terms of clock cycle) from fv assertion to lv assertion<br>
+       * LV_L_TO_LV_H     : used to inject delay (in terms of clock cycle) from lv negation to lv assertion<br>
+       * LV_L_TO_FV_L     : used to inject delay (in terms of clock cycle) from lv negation to fv negation<br>
+       * FV_L_TO_FV_H     : used to inject delay (in terms of clock cycle) from fv negation to fv assertion<br><br>       
+       DSI parameters<br>
+       * INIT_DRIVE_DELAY : delay from reset deassertion or tinit_done assertion before start of transaction<br>
+       * HFRONT_PORCH     : used to set duration of HFRONT_PORCH in terms of clock cycles<br>
+       * HSYNC_PULSE      : used to set duration of HSYNC_PULSE  in terms of clock cycles<br>
+       * HBACK_PORCH      : used to set duration of HBACK_PORCH  in terms of clock cycles<br> 
+       * VFRONT_PORCH     : used to set duration of VFRONT_PORCH in terms of hsync pulses<br> 
+       * VSYNC_PULSE      : used to set duration of VSYNC_PULSE  in terms of hsync pulses<br> 
+       * VBACK_PORCH      : used to set duration of VBACK_PORCH  in terms of hsync pulses<br> 
+       
+       * User can override the default timing parameters using defines above.<br><br></span> 
+	   <span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>Refer to UserGuide document for more information.</span>  
+	   <span lang=EN-US><o:p></o:p></span></li>
+  </ol>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'><o:p>&nbsp;</o:p></span></p>
+
+<p style='margin-bottom:12.0pt'><b><span lang=EN-US style='font-family:Arial'>Timing
+Report file<o:p></o:p></span></b></p>
+    <![if !supportLists]><![endif]><![if !supportLists]><![endif]><![if !supportLists]><![endif]><![if
+    !supportLists]><![endif]><![if !supportLists]><![endif]><p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:18.0pt'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:10.0pt;font-family:Verdana'>For Diamond tool:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:54.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo12;tab-stops:list 54.0pt'><![if !supportLists]><span
+lang=EN-US style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-US style='font-size:10.0pt;
+font-family:Verdana'>Open Diamond Project navigator.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:54.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo12;tab-stops:list 54.0pt'><![if !supportLists]><span
+lang=EN-US style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-US style='font-size:10.0pt;
+font-family:Verdana'>Under File tab, select <b style='mso-bidi-font-weight:
+normal'>Open </b><em><span style='font-family:Verdana;font-style:normal;
+mso-bidi-font-style:italic'>-&gt;</span></em><em><span style='font-family:Verdana'>
+</span></em><b style='mso-bidi-font-weight:normal'>Project</b>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:54.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo12;tab-stops:list 54.0pt'><![if !supportLists]><span
+lang=EN-US style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-US style='font-size:10.0pt;
+font-family:Verdana'>Select file <b style='mso-bidi-font-weight:normal'>\&lt;<span
+class=SpellE>project_dir</span>&gt;\<span class=SpellE>cmos2dphy_eval</span>\&lt;instance_name&gt;\<span
+class=SpellE>impl\lifmd\synplify</span>|lse\&lt;instance_name&gt;_<span
+class=SpellE>top.ldf</span></b><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:54.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo12;tab-stops:list 54.0pt'><![if !supportLists]><span
+lang=EN-US style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-US style='font-size:10.0pt;
+font-family:Verdana'>Double click on <b style='mso-bidi-font-weight:normal'>Place
+&amp; Route Trace</b> menu in process window<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:54.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo12;tab-stops:list 54.0pt'><![if !supportLists]><span
+lang=EN-US style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-US style='font-size:10.0pt;
+font-family:Verdana'>View timing report in Reports window<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><br>
+</span><b><span lang=EN-US style='font-family:Arial'>Reference Information</span></b><span
+lang=EN-US><br>
+</span><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'><br>
+<span class=GramE>The</span> following documents provide more information on
+implementing this core:<o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo2;tab-stops:list 36.0pt'><span lang=EN-US><a
+     href="http://www.latticesemi.com/view_document?document_id=51673"><span
+     style='font-family:"Arial","sans-serif"'>User’s Guide</span></a><o:p></o:p></span></li>
+ <li class=MsoNormal><span lang=EN-US style='font-family:"Arial","sans-serif"'><a
+     href="http://www.latticesemi.com/view_document?document_id=51564">Clarity
+     Designer User Manual</a></span></li>
+</ul>
+
+
+
+
+
+<p class=MsoNormal style='margin-bottom:12.0pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'>
+
+<span lang=EN-US style='font-size:10.0pt;font-family:Verdana;color:#013C9A'><script language="javascript1.2"  type="text/javascript">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script></span><span lang=EN-US>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'>&nbsp;</p>
+
+
+
+
+  <div style='mso-element:para-border-div;border:none;border-bottom:solid windowtext 1.0pt;
+mso-border-bottom-alt:solid windowtext .75pt;padding:0cm 0cm 0cm 0cm'>
+    <p class=MsoNormal1 style='margin-bottom:12.0pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'><b><span
+lang=EN-US style='font-size:18.0pt;font-family:Arial'>General Information</span></b><span
+lang=EN-US>
+      <o:p></o:p>
+    </span></p>
+  </div>
+  
+  <p class=MsoNormal1 style='margin-bottom:12.0pt'><span lang=EN-US><br>
+    </span><b><span lang=EN-US style='font-family:Arial'>Copyright Notice</span></b><span
+lang=EN-US>
+      <o:p></o:p>
+    </span></p>
+  <table class=MsoNormalTable border=0 cellspacing=3 cellpadding=0 width="80%"
+ style='width:80.0%;mso-cellspacing:1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+      <td style='padding:.75pt .75pt .75pt .75pt'><p><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>Copyright 2016&copy;
+        Lattice Semiconductor Corporation. ALL RIGHTS RESERVED. This confidential
+        and proprietary software may be used only as authorized by a licensing
+        agreement from Lattice Semiconductor Corporation. The entire notice above
+        must be reproduced on all authorized copies and copies may only be made to
+        the extent permitted by a licensing agreement from Lattice Semiconductor
+        Corporation.
+              <o:p></o:p>
+      </span></p></td>
+    </tr>
+  </table>
+  <div style='mso-element:para-border-div;border:none;border-bottom:solid windowtext 1.0pt;
+mso-border-bottom-alt:solid windowtext .75pt;padding:0cm 0cm 0cm 0cm'>
+    <p class=MsoNormal1 style='margin-bottom:12.0pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'><span
+lang=EN-US><br>
+      </span><b><span lang=EN-US style='font-size:18.0pt;font-family:Arial'>Contacting
+        Lattice</span></b><span lang=EN-US>
+          <o:p></o:p>
+        </span></p>
+  </div>
+  <p class=MsoNormal1><span lang=EN-US>
+    <o:p>&nbsp;</o:p>
+  </span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=563
+ style='width:337.5pt;mso-cellspacing:0cm;margin-left:9.0pt;border:solid silver 1.0pt;
+ mso-border-alt:solid silver .75pt;mso-padding-alt:0cm 0cm 0cm 0cm;border-spacing: 0px;
+ border-spacing: 0px' x-use-null-cells>
+    <col class=whs6>
+    <col class=whs7>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;x-cell-content-align: top'>
+      <td width=125 valign=top style='width:75.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1>
+        <!--(Table)=========================================================-->
+        <span
+  lang=EN-US style='font-size:10.0pt;font-family:Verdana'>Mail:
+          <o:p></o:p>
+        </span></p></td>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>Lattice
+        Semiconductor Corporation<br>
+          <st1:address w:st="on">
+            <st1:Street w:st="on">5555 NE Moore 
+              Court</st1:Street>
+            <br>
+            <st1:City w:st="on">Hillsboro</st1:City>
+            ,
+            <st1:State w:st="on">OR</st1:State>
+            &nbsp;
+            <st1:PostalCode w:st="on">97124</st1:PostalCode>
+            <br>
+            <st1:country-region w:st="on">U.S.A.
+              <u1:p></u1:p>
+            </st1:country-region>
+          </st1:address>
+        <o:p></o:p>
+      </span></p></td>
+    </tr>
+    <tr style='mso-yfti-irow:1;x-cell-content-align: top'>
+      <td width=125 valign=top style='width:75.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>Telephone:
+              <o:p></o:p>
+      </span></p></td>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>1-800-LATTICE
+        (
+              <st1:country-region w:st="on">USA</st1:country-region>
+        and
+        <st1:country-region
+  w:st="on">
+          <st1:place w:st="on">Canada</st1:place>
+        </st1:country-region>
+        )
+        <u1:p></u1:p>
+        <o:p></o:p>
+      </span></p></td>
+    </tr>
+    <tr style='mso-yfti-irow:2;x-cell-content-align: top'>
+      <td width=125 valign=top style='width:75.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US>&nbsp;
+              <o:p></o:p>
+      </span></p></td>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>1-503-268-8001
+        (other locations)
+              <u1:p></u1:p>
+        <o:p></o:p>
+      </span></p></td>
+    </tr>
+    <tr style='mso-yfti-irow:3;x-cell-content-align: top'>
+      <td width=125 valign=top style='width:75.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>Website:
+              <o:p></o:p>
+      </span></p></td>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana;
+  color:#013C9A'><a href="http://www.latticesemi.com" target="_blank"><span
+  style='color:#013C9A'>http://www.latticesemi.com</span></a>
+              <u1:p></u1:p>
+        (
+        <st1:country-region
+  w:st="on">US</st1:country-region>
+        )<br>
+                <a href="http://www.latticesemi.com.cn" target="_blank"><span
+  style='color:#013C9A'>http://www.latticesemi.com.cn(China)</span></a><br>
+                <a href="http://www.latticesemi.co.kr" target="_blank"><span
+  style='color:#013C9A'>http://www.latticesemi.co.kr(Korea)</span></a><br>
+                <a href="http://www.latticesemi.co.jp" target="_blank"><span
+  style='color:#013C9A'>http://www.latticesemi.co.jp(Japan)</span></a>
+                <o:p></o:p>
+      </span></p></td>
+    </tr>
+    <tr style='mso-yfti-irow:4;mso-yfti-lastrow:yes;x-cell-content-align: top'>
+      <td width=125 valign=top style='width:75.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>E-mail:
+              <o:p></o:p>
+      </span></p></td>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana;
+  color:#013C9A'><a href="mailto:techsupport@latticesemi.com"><span
+  style='color:#013C9A'>techsupport@latticesemi.com</span></a>
+              <u1:p></u1:p>
+        <br>
+                <a href="mailto:techsupport_asia@latticesemi.com"><span style='color:#013C9A'>techsupport_asia@latticesemi.com
+                  (Asia)</span></a>
+        <o:p></o:p>
+      </span></p></td>
+    </tr>
+  </table>
+  <p style='margin-top:0cm;margin-right:0cm;margin-bottom:12.0pt;margin-left:
+0cm'><span lang=EN-US>
+    <o:p>&nbsp;</o:p>
+  </span></p>
+  <div style='mso-element:para-border-div;border:none;border-bottom:solid windowtext 1.0pt;
+mso-border-bottom-alt:solid windowtext .75pt;padding:0cm 0cm 0cm 0cm'>
+    <p class=MsoNormal1 style='margin-bottom:12.0pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'><b><span
+lang=EN-US style='font-size:18.0pt;font-family:Arial'>IP Module Information</span></b><span
+lang=EN-US>
+      <o:p></o:p>
+    </span></p>
+  </div>
+  <p class=MsoNormal1 style='margin-bottom:12.0pt'><span lang=EN-US><br>
+    </span><b><span lang=EN-US style='font-family:Arial'>About this Module</span></b><span
+lang=EN-US>
+    <o:p></o:p>
+    </span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=563
+ style='width:337.5pt;mso-cellspacing:0cm;margin-left:9.0pt;border:solid silver 1.0pt;
+ mso-border-alt:solid silver .75pt;mso-padding-alt:0cm 0cm 0cm 0cm;border-spacing: 0px;
+ border-spacing: 0px' x-use-null-cells>
+    <col>
+    <col>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;x-cell-content-align: top'>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1>
+        <!--(Table)=========================================================-->
+        <span
+  lang=EN-US style='font-size:10.0pt;font-family:Verdana'>IP Name:
+          <o:p></o:p>
+        </span></p></td>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=MsoNormal1><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Verdana'>CMOS to D-PHY
+              <o:p></o:p>
+      </span></p></td>
+    </tr>
+    <tr style='mso-yfti-irow:1;x-cell-content-align: top'>
+      <td width=375 valign=top style="width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt; height: 18px;"><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>IP
+        Version:
+              <o:p></o:p>
+      </span></p></td>
+      <td width=375 valign=top style="width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt; height: 18px;"><p class=table1><span class=SpellE1><span lang=EN-US style='font-size:10.0pt;
+  font-family:Verdana'>Ver</span></span><span lang=EN-US style='font-size:10.0pt;
+  font-family:Verdana'> 1.3</span></p></td>
+    </tr>
+    <tr style='mso-yfti-irow:2;x-cell-content-align: top'>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>IP
+        Release Date:
+              <o:p></o:p>
+      </span></p></td>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana;
+  mso-fareast-font-family:SimSun'>February 2018</span></p></td>
+    </tr>
+    <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes;x-cell-content-align: top'>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>Target
+        Technology:
+              <o:p></o:p>
+      </span></p></td>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>
+      	LIFMD
+              <o:p></o:p>
+      </span></p></td>
+    </tr>
+  </table>
+  <p class=MsoNormal1 style='margin-bottom:12.0pt'><span lang=EN-US><br>
+    </span><b><span lang=EN-US style='font-family:Arial'>Software Requirements</span></b><span
+lang=EN-US>
+      <o:p></o:p>
+    </span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=563
+ style='width:337.5pt;mso-cellspacing:0cm;margin-left:9.0pt;border:solid silver 1.0pt;
+ mso-border-alt:solid silver .75pt;mso-padding-alt:0cm 0cm 0cm 0cm;border-spacing: 0px;
+ border-spacing: 0px' x-use-null-cells>
+    <col>
+    <col>
+    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;x-cell-content-align: top'>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1>
+        <!--(Table)=========================================================-->
+        <span
+  lang=EN-US style='font-size:10.0pt;font-family:Verdana'>Synthesis Tools
+          Supported:
+          <o:p></o:p>
+        </span></p></td>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span class=SpellE1><span lang=EN-US style='font-size:10.0pt;
+  font-family:Verdana'>Lattice Synthesis Engine (LSE), Synplify Pro for Lattice L-2016.03L or later<br>
+        </span><span lang=EN-US>
+          <o:p></o:p>
+        </span></p></td>
+    </tr>
+    <tr style='mso-yfti-irow:1;x-cell-content-align: top'>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>Simulation
+        Tool Supported:
+              <o:p></o:p>
+      </span></p></td>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span class=SpellE1><span lang=EN-US style='font-size:10.0pt;
+  font-family:Verdana'></span></span><span lang=EN-US style='font-size:
+  10.0pt;font-family:Verdana'>Active-HDL Lattice Edition 10.3 SP1 or later (Windows only)
+              <o:p></o:p>
+      </span></p></td>
+    </tr>
+    <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes;x-cell-content-align: top'>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1><span lang=EN-US style='font-size:10.0pt;font-family:Verdana'>Lattice
+        Tool Supported:
+              <o:p></o:p>
+      </span></p></td>
+      <td width=375 valign=top style='width:225.0pt;border:none;padding:.75pt .75pt .75pt .75pt'><p class=table1 style='margin:0cm;margin-bottom:.0001pt'><span lang=EN-US
+  style='font-size:10.0pt;font-family:Verdana'>Diamond 3.8 or later
+              <o:p></o:p>
+      </span></p></td>
+    </tr>
+  </table>
+  <p><span lang=EN-US>&nbsp;
+        <o:p></o:p>
+  </span></p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
