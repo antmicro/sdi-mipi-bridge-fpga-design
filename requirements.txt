@@ -1,0 +1,1 @@
+-e third-party/antmicro-sdi-bridge-sdi-mipi-ip/.

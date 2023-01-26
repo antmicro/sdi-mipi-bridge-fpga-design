@@ -1,0 +1,46 @@
+202,217c202,203
+< 
+< ECLKSYNCB ECLKSYNCB_inst(
+<   .ECLKI (pix_clk_i),
+<   .STOP  (~reset_n_i),
+<   .ECLKO (eclk_o)
+< );
+< 
+< CLKDIVG #(
+<   .DIV     ("2.0")
+< )
+< clkdiv_inst (
+<   .CLKI    (eclk_o),
+<   .RST     (~reset_n_i),
+<   .ALIGNWD (1'b0),
+<   .CDIVX   (pix_clk_w)
+< );
+---
+> 
+> assign pix_clk_w = pix_clk_i;
+237a224,244
+> wire buf1;
+> wire buf2;
+> 
+> FD1P3AX delay_inst0 (
+>   .D       (lv_i),
+>   .SP      (1'd1),
+>   .CK      (pix_clk_w),
+>   .Q       (buf1)
+> );
+> 
+> FD1P3AX delay_inst1 (
+>   .D       (buf1),
+>   .SP      (1'd1),
+>   .CK      (pix_clk_w),
+>   .Q       (buf2)
+> );
+> 
+> assign de_w[0] = buf2;
+> assign de_w[1] = buf1;
+> 
+> /*
+251c258
+< 
+---
+> */
