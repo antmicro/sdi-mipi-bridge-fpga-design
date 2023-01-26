@@ -9,9 +9,10 @@ impl*/
 .spreadsheet_view.ini
 *.dir/
 *.log
-*.tcl
-!bitgen.tcl
 *.ccl
 *.srp
 *.dmp
 ._Real_._Math_.vhd
+__pycache__
+build
+src/*.v
