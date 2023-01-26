@@ -9,13 +9,25 @@
         <Source name="CMOS2DPHY/CMOS2DPHY.sbx" type="sbx" type_short="SBX">
             <Options/>
         </Source>
-        <Source name="CMOS2DPHY/csi2_inst/csi2_inst_pattern_gen.v" type="Verilog" type_short="Verilog">
+        <Source name="antmicro-sdi-bridge-sdi-mipi-ip/aligner/aligner.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="antmicro-sdi-bridge-sdi-mipi-ip/detector/detector.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="antmicro-sdi-bridge-sdi-mipi-ip/timing/timing_gen.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="sdi2mipi.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
         <Source name="impl1/impl1.xcf" type="Programming Project File" type_short="Programming">
             <Options/>
         </Source>
         <Source name="mipi_tester.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+        <Source name="sim_wiz/sim_wiz.spf" type="Simulation Project File" type_short="SPF">
             <Options/>
         </Source>
     </Implementation>

@@ -1,7 +1,7 @@
 --VHDL instantiation template
 
 component CMOS2DPHY is
-    port (csi2_inst_pixdata_d0_i: in std_logic_vector(23 downto 0);
+    port (csi2_inst_pixdata_d0_i: in std_logic_vector(7 downto 0);
         csi2_inst_clk_n_o: inout std_logic;
         csi2_inst_clk_p_o: inout std_logic;
         csi2_inst_d0_n_io: inout std_logic;

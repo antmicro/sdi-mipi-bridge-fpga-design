@@ -10,6 +10,7 @@ impl*/
 *.dir/
 *.log
 *.tcl
+!bitgen.tcl
 *.ccl
 *.srp
 *.dmp

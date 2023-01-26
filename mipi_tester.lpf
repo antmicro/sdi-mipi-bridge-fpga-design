@@ -2,8 +2,8 @@ BLOCK RESETPATHS ;
 BLOCK ASYNCPATHS ;
 IOBUF ALLPORTS IO_TYPE=LVCMOS33 ;
 
-LOCATE COMP "csi2_inst_reset_n_i" SITE "K10" ;
-LOCATE COMP "csi2_inst_pix_clk_i" SITE "E1" ;
+LOCATE COMP "csi2_inst_reset_n_o" SITE "D10" ;
+LOCATE COMP "csi2_inst_pix_clk_i" SITE "J7" ;
 LOCATE COMP "csi2_inst_tinit_done_o" SITE "J10" ;
 LOCATE COMP "csi2_inst_pll_lock_o" SITE "J9";
 
@@ -15,7 +15,7 @@ LOCATE COMP "led" SITE "J2" ;
 LOCATE COMP "csi2_inst_data_i[7]" SITE "K3";
 LOCATE COMP "csi2_inst_data_i[6]" SITE "K4";
 LOCATE COMP "csi2_inst_data_i[5]" SITE "K5";
-LOCATE COMP "csi2_inst_data_i[4]" SITE "J6";
+LOCATE COMP "csi2_inst_data_i[4]" SITE "K6";
 LOCATE COMP "csi2_inst_data_i[3]" SITE "K7";
 LOCATE COMP "csi2_inst_data_i[2]" SITE "J3";
 LOCATE COMP "csi2_inst_data_i[1]" SITE "J4";

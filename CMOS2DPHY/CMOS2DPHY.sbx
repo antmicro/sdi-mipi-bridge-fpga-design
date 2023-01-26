@@ -201,7 +201,7 @@
                     <spirit:wire>
                         <spirit:direction>in</spirit:direction>
                         <spirit:vector>
-                            <spirit:left>23</spirit:left>
+                            <spirit:left>7</spirit:left>
                             <spirit:right>0</spirit:right>
                         </spirit:vector>
                     </spirit:wire>
@@ -217,8 +217,8 @@
             <lattice:device>LIF-MD6000-6KMG80I</lattice:device>
             <lattice:synthesis>lse</lattice:synthesis>
             <lattice:date>2020-05-12.18:23:51</lattice:date>
-            <lattice:modified>2020-07-02.13:25:57</lattice:modified>
-            <lattice:diamond>3.11.0.396.4</lattice:diamond>
+            <lattice:modified>2020-08-05.13:51:02</lattice:modified>
+            <lattice:diamond>3.11.2.446</lattice:diamond>
             <lattice:language>Verilog</lattice:language>
             <lattice:attributes>
                 <lattice:attribute lattice:name="AddComponent">false</lattice:attribute>
@@ -556,7 +556,7 @@
                                 <spirit:wire>
                                     <spirit:direction>in</spirit:direction>
                                     <spirit:vector>
-                                        <spirit:left>23</spirit:left>
+                                        <spirit:left>7</spirit:left>
                                         <spirit:right>0</spirit:right>
                                     </spirit:vector>
                                 </spirit:wire>
@@ -571,11 +571,11 @@
                     <spirit:vendorExtensions>
                         <lattice:synthesis>lse</lattice:synthesis>
                         <lattice:date>13-03-16.00:00:00</lattice:date>
-                        <lattice:modified>2020-07-02.13:25:57</lattice:modified>
+                        <lattice:modified>2020-08-05.13:51:02</lattice:modified>
                         <lattice:attributes>
                             <lattice:attribute lattice:name="AddComponent">false</lattice:attribute>
                             <lattice:attribute lattice:name="Change4to5">false</lattice:attribute>
-                            <lattice:attribute lattice:name="ChangeConfig">false</lattice:attribute>
+                            <lattice:attribute lattice:name="ChangeConfig">true</lattice:attribute>
                             <lattice:attribute lattice:name="ChangeConnect">false</lattice:attribute>
                             <lattice:attribute lattice:name="ChangeDevice">false</lattice:attribute>
                             <lattice:attribute lattice:name="ChangeLocate">false</lattice:attribute>
@@ -638,7 +638,7 @@
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>Date</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">07/02/2020</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">08/05/2020</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>ModuleName</lattice:lpckey>
@@ -654,7 +654,7 @@
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>Time</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">13:15:16</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">12:44:42</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>VendorName</lattice:lpckey>
@@ -675,15 +675,15 @@
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>byteclk</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">111.3750</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">74.2500</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>byteclkdisp</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">111</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">74</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>byteclkround</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">111</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">74</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>clkovride</lattice:lpckey>
@@ -691,7 +691,7 @@
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>cm</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">196</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">208</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>cmdcntwidth</lattice:lpckey>
@@ -699,11 +699,11 @@
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>cn</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">16</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">14</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>co</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">0</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">1</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>crc16</lattice:lpckey>
@@ -711,11 +711,11 @@
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>data_type</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">RGB888</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">YUV422_8</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>data_type_str</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">RGB888</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">YUV422_8</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>dataformat</lattice:lpckey>
@@ -739,11 +739,11 @@
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>dcsclk</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">27.8438</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">18.5625</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>dcsclkdisp</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">28</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">19</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>dcsfile</lattice:lpckey>
@@ -763,7 +763,7 @@
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>dt</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">6'h24</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">6'h1E</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>filterfrstlne</lattice:lpckey>
@@ -783,7 +783,7 @@
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>maxtxrate</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">1500</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">1200.0000</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>mintxrate</lattice:lpckey>
@@ -819,7 +819,7 @@
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tclkpost</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">13</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">11</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tclkpre</lattice:lpckey>
@@ -827,51 +827,51 @@
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tdathszero</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">12</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">8</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tdatprep</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">6</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">5</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tgtdphyclk</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">445.5000</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">297.0000</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tgtdphyclkdisp</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">446</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">297</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tgtpixclk</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">74.2500</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">148.5000</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tgtpixclkdisp</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">74</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">149</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tgtpixclkint</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">74.2500</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">148.5000</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tgtrxrate</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">1782.0000</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">1188.0000</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tgtrxratedisp</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">1782</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">1188</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tgttxrate</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">891</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">594</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tgttxratetotal</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">1782.0000</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">1188.0000</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tgttxratetotaldisp</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">1782</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">1188</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>tinitvalue</lattice:lpckey>
@@ -891,11 +891,11 @@
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>wc</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">3840</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">2560</lattice:lpcvalue>
                             </lattice:lpcentry>
                             <lattice:lpcentry>
                                 <lattice:lpckey>wordwidth</lattice:lpckey>
-                                <lattice:lpcvalue lattice:resolve="constant">24</lattice:lpcvalue>
+                                <lattice:lpcvalue lattice:resolve="constant">8</lattice:lpcvalue>
                             </lattice:lpcentry>
                         </lattice:lpc>
                         <lattice:groups/>
@@ -1036,8 +1036,8 @@
                         <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
                     </lattice:attributes>
                 </spirit:vendorExtensions>
-                <spirit:internalPortReference spirit:right="0" spirit:portRef="pixdata_d0_i" spirit:componentRef="csi2_inst" spirit:left="23"/>
-                <spirit:externalPortReference spirit:right="0" spirit:portRef="csi2_inst_pixdata_d0_i" spirit:left="23"/>
+                <spirit:internalPortReference spirit:right="0" spirit:portRef="pixdata_d0_i" spirit:componentRef="csi2_inst" spirit:left="7"/>
+                <spirit:externalPortReference spirit:right="0" spirit:portRef="csi2_inst_pixdata_d0_i" spirit:left="7"/>
             </spirit:adHocConnection>
             <spirit:adHocConnection>
                 <spirit:name>csi2_inst_pixdata_d0_i[0]</spirit:name>
@@ -1051,116 +1051,6 @@
                 <spirit:internalPortReference spirit:portRef="pixdata_d0_i[0]" spirit:componentRef="csi2_inst"/>
             </spirit:adHocConnection>
             <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[10]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[10]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[10]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[10]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[11]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[11]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[11]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[11]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[12]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[12]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[12]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[12]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[13]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[13]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[13]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[13]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[14]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[14]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[14]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[14]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[15]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[15]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[15]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[15]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[16]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[16]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[16]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[16]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[17]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[17]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[17]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[17]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[18]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[18]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[18]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[18]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[19]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[19]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[19]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[19]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
                 <spirit:name>csi2_inst_pixdata_d0_i[1]</spirit:name>
                 <spirit:displayName>csi2_inst_pixdata_d0_i[1]</spirit:displayName>
                 <spirit:vendorExtensions>
@@ -1170,50 +1060,6 @@
                 </spirit:vendorExtensions>
                 <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[1]"/>
                 <spirit:internalPortReference spirit:portRef="pixdata_d0_i[1]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[20]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[20]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[20]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[20]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[21]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[21]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[21]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[21]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[22]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[22]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[22]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[22]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[23]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[23]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[23]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[23]" spirit:componentRef="csi2_inst"/>
             </spirit:adHocConnection>
             <spirit:adHocConnection>
                 <spirit:name>csi2_inst_pixdata_d0_i[2]</spirit:name>
@@ -1280,28 +1126,6 @@
                 </spirit:vendorExtensions>
                 <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[7]"/>
                 <spirit:internalPortReference spirit:portRef="pixdata_d0_i[7]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[8]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[8]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[8]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[8]" spirit:componentRef="csi2_inst"/>
-            </spirit:adHocConnection>
-            <spirit:adHocConnection>
-                <spirit:name>csi2_inst_pixdata_d0_i[9]</spirit:name>
-                <spirit:displayName>csi2_inst_pixdata_d0_i[9]</spirit:displayName>
-                <spirit:vendorExtensions>
-                    <lattice:attributes>
-                        <lattice:attribute lattice:name="export">sys_yes</lattice:attribute>
-                    </lattice:attributes>
-                </spirit:vendorExtensions>
-                <spirit:externalPortReference spirit:portRef="csi2_inst_pixdata_d0_i[9]"/>
-                <spirit:internalPortReference spirit:portRef="pixdata_d0_i[9]" spirit:componentRef="csi2_inst"/>
             </spirit:adHocConnection>
         </spirit:adHocConnections>
     </spirit:design>

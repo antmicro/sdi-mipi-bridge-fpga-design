@@ -13,7 +13,7 @@ module CMOS2DPHY (csi2_inst_pixdata_d0_i, csi2_inst_clk_n_o, csi2_inst_clk_p_o,
             csi2_inst_dvalid_i, csi2_inst_fv_i, csi2_inst_lv_i, csi2_inst_pd_dphy_i, 
             csi2_inst_pix_clk_i, csi2_inst_pll_lock_o, csi2_inst_reset_n_i, 
             csi2_inst_tinit_done_o) /* synthesis sbp_module=true */ ;
-    input [23:0]csi2_inst_pixdata_d0_i;
+    input [7:0]csi2_inst_pixdata_d0_i;
     inout csi2_inst_clk_n_o;
     inout csi2_inst_clk_p_o;
     inout csi2_inst_d0_n_io;
