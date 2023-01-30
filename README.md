@@ -1,99 +1,54 @@
 # SDI to MIPI CSI-2 Bridge FPGA design
 
+Copyright 2023 [Antmicro](https://antmicro.com/)
+
 ## Introduction
 
-This is a SDI to MIPI CSI-2 bridge design for Lattice Diamond tool. It is
-prepared to run with SDI Bridge, on Lattice Crosslink FPGA.
-Design is available in 3 versions - each on different branch, supporting:
+This is a SDI to MIPI CSI-2 bridge design for Lattice Diamond tool.
 
-| Resolution  | Branch  |
-|-------------|---------|
-| 1080p 60fps | 1080p60 |
-| 1080p 30fps | 1080p30 |
-| 720p 60fps  | master  |
+The design uses video data acquired from the Semtech GS2971A deserializer
+to generate correct MIPI timings. It converts hsync and vsync signals
+to lv and fv that are passed down to CMOS2DPHY IP Core
+for Lattice Crosslink devices.
 
 ## Contents
 
 The project consist of:
-* sdi-mipi IP - block written in python with Migen to generate correct
+* [SDI2MIPI](src/sdi2mipi.py) IP - block written in python with Migen to generate correct
 timings for the MIPI transmitter from synchronization signals acquired from
 SDI deserializer.
 * [Lattice CMOS2DPHY IP Core](https://www.latticesemi.com/en/Products/DesignSoftwareAndIP/IntellectualProperty/IPCore/IPCores04/CMOStoMIPICSI2InterfaceBridge) - for converting and transmitting parallelized data in MIPI CSI-2 standard.
 
 ## Setup
 
-```bash
-git clone <sdi-bridge-mipi-tester-repo>
-cd antmicro-sdi-bridge-mipi-tester
-git submodule update --init
+The design in this repository is prepared for Lattice Diamond tool. It is
+required to install it in order to generate the bitstream and program the device.
+For instructions on installation and usage of Diamond, please refer to
+[Lattice Diamond 3.12 Installation Notice for Linux](https://www.latticesemi.com/-/media/LatticeSemi/Documents/Diamond312/Diamond_Install_Linux.ashx).
+
+Additionally, make sure that you installed sources of `CMOS to D-PHY 1.3` IP-Core
+using Diamond Clarity Designer. For more information, check
+[Accomplishing Tasks with Clarity Designer](https://www.latticesemi.com/-/media/LatticeSemi/Documents/UserManuals/1D/ClarityUserGuide32.ashx#page=11)
+from Clarity Designer User Manual (p. 11).
+
+Once you have Diamond prepared, install Python prerequisites:
+```
+pip3 install -r requirements.txt
 ```
 
-The design is prepared for Lattice Diamond tool. It is required to install it
-in order to generate the bitstream and program the device. For instructions on
-installation and usage of Diamond please refer to `Diamond installation` and
-`Diamond - getting started` sections of SDI to MIPI CSI-2
-bridge documentation.
+## Build
 
-In order to use this design, verilog sources for timing generator blocks must
-be generated. For prerequisites please refer to timing generator
-instructions in README.
-After installing Migen, verilog files can be generated with running in root directory
-
-```bash
-make verilog/720p
+After you've prepared your environment, you can build the project with the following command:
 ```
-or
-```bash
-make verilog/1080p
+./run --video-format=<video-format> --lanes=<lanes>
 ```
+where:
 
----
-**WARNING**
+* `<video-format>` - is one of `720p60`, `1080p30`, `1080p60`
+* `<lanes>` - is `2` or `4`
 
-It is crucial to keep correct submodule version. Recomended way is to run:
-```bash
-git submodule update --init
-```
-for checking out submodule to commit that is binded with current design revision.
+The output files will be generated in the `build/<video-format>-<lanes>` directory.
 
-Then new verilog files must be generated on each submodule modification with:
-```bash
-make verilog/720p
-```
-or
-```bash
-make verilog/1080p
-```
+## Software
 
----
-
-After generating verilog files bitstream can be generated in two ways:
-* using Lattice Diamond GUI tool
-* running `make bitgen`, **important:** make sure that `Makefile` has correct paths
-  for Lattice Diamond tool in Your configuration
-
-There is also a possibility of generating verilog files and bitstream in one
-command: `make bitgen/res`, where `res` is desired resolution (pick from 720p or 1080p)
-
-## HW test procedure
-
-* Checkout on tested branch
-* run `git submodule update --init`
-* run `make verilog/res`, where `res` is tested resolution (pick from 720p or 1080p).
-  Alternatively, download artifacts from first stage of submodule CI on given
-  commit and put them in their directories according to their placement in
-  diamond project
-* generate bitstream
-* program device
-
----
-**NOTE**
-
-Running 1080p 60fps design requires using CrossLink DDR (Double Data Rate)
-capabilities. To run 1080p60 design, a proper deserializer configuration is needed.
-
-Deserializer must be working in `SMPTE` mode (`!SMPTE_BYPASS` set to `HIGH`) and
-configuration bit `LEVEL_B2A_CONV_DISABLE_MASK` must be tied to `LOW` in order
-to enable video stream format conversion from `Level B` to `Level A`.
-
----
+Detailed instruction about software support is available in [SDI MIPI Bridge repository](https://github.com/antmicro/sdi-mipi-bridge/blob/master/sw_setup_l4t.rst).

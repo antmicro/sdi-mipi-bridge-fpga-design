@@ -27,7 +27,7 @@ module iver_tb;
 	integer k;
 	integer j;
 
-	reg reset_n = 0;
+	reg reset = 0;
 	reg mode;
 	reg [7:0]data;
 	reg vsync;
@@ -43,8 +43,8 @@ module iver_tb;
 		$dumpvars(0, iver_tb);
 		mode = 0;
 		#5000
-		#50 reset_n = 0;
-		#50 reset_n = 1;
+		#50 reset = 1;
+		#50 reset = 0;
 		#5000
 		mode = 1;
 		for (i = 0; i < FRAMES; i = i + 1) begin
@@ -69,7 +69,7 @@ module iver_tb;
 
 	sdi2mipi UUT (
 		.sys_clk(clk),
-		.n_rst(reset_n),
+		.sys_rst(reset),
 		.vsync_i(vsync),
 		.hsync_i(hsync),
 		.data_i(data),

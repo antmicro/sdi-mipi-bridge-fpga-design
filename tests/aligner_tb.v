@@ -31,7 +31,7 @@ module iver_tb;
 	integer j;
 
 	reg sys_clk = 0;
-	reg reset_n = 0;
+	reg reset = 0;
 	reg n_align_i = 0;
 	wire align_o;
 	wire detector_rst_o;
@@ -40,10 +40,10 @@ module iver_tb;
 	initial begin
 		$dumpfile("align.vcd");
 		$dumpvars(0, iver_tb);
-		#(50*PER*MUL) reset_n = 1;
+		#(50*PER*MUL) reset = 0;
 		#(50*PER*MUL)
-		#(50*PER*MUL) reset_n = 0;
-		#(50*PER*MUL) reset_n = 1;
+		#(50*PER*MUL) reset = 1;
+		#(50*PER*MUL) reset = 0;
 		#(500*PER*MUL) n_align_i = 1;
 		#(5*PER*MUL) n_align_i = 0;
 		#(500*PER*MUL)
@@ -54,7 +54,7 @@ module iver_tb;
 
 	aligner UUT (
 		.sys_clk(sys_clk),
-		.n_rst(reset_n),
+		.sys_rst(reset),
 		.n_align_i(n_align_i),
 		.align_o(align_o),
 		.detector_rst_o(detector_rst_o)

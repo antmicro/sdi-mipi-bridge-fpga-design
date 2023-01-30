@@ -32,7 +32,7 @@ module iver_tb;
 
 	reg sys_clk = 0;
 	reg pix_clk = 0;
-	reg reset_n = 0;
+	reg reset = 1;
 	reg lv = 0;
 	reg [7:0] data;
 
@@ -41,16 +41,16 @@ module iver_tb;
 		$dumpvars(0, iver_tb);
 		lv = 0;
 		#(5000*PER*MUL)
-		#(50*PER*MUL) reset_n = 0;
-		#(50*PER*MUL) reset_n = 1;
+		#(50*PER*MUL) reset = 1;
+		#(50*PER*MUL) reset = 0;
 		#(5000*PER*MUL)
 		for (i = 0; i < FRAMES; i = i + 1) begin
 			lv = 0;
 			#(V_TOTAL - V_ACTIVE);
 			for (k = 0; k < V_ACTIVE; k = k + 1) begin
 				#(((H_TOTAL-H_ACTIVE)/2)-(3*PER*MUL)) data = 8'h0;
-				reset_n = 0;
-				#(50*PER*MUL) reset_n = 1;
+				reset = 1;
+				#(50*PER*MUL) reset = 0;
 				#(50*PER*MUL)
 				#(PER) data = 8'hff;
 				#(PER) data = 8'hff;
@@ -174,9 +174,9 @@ module iver_tb;
 	always #(PER*MUL/2) pix_clk = !pix_clk;
 
 	detector UUT (
-		.sys_clk(sys_clk),
+		.det_clk(sys_clk),
+		.det_rst(reset),
 		.pix_clk(pix_clk),
-		.n_rst(reset_n),
 		.lv_i(lv),
 		.data_i(data));
 endmodule

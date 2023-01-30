@@ -142,8 +142,8 @@ def prepare_diamond_project(
         run_diamondc(tcl_script_path, cwd=output_dir)
 
 
-def prepare_top_sources(output_dir):
-    top = Top()
+def prepare_top_sources(output_dir, video_format, four_lanes, sim):
+    top = Top(video_format, four_lanes, sim)
     top_path = os.path.join(output_dir, "top.v")
 
     forward_bb_declarations = """
@@ -156,7 +156,6 @@ output LFCLKOUT;
 endmodule
 
 """
-
     with open(top_path, "w") as fd:
         fd.write(forward_bb_declarations)
         fd.write(str(convert(top, top.ios, name="top")))
@@ -177,6 +176,11 @@ if __name__ == "__main__":
     parser.add_argument(
         "--lanes", type=int, default=2, help='Number of lanes ("2", or "4")'
     )
+    parser.add_argument(
+        "--sim",
+        action="store_true",
+        help="Generate sources compatible with Icarus simulator",
+    )
     args = parser.parse_args()
 
     if args.video_format not in ("720p60", "1080p30", "1080p60"):
@@ -193,8 +197,8 @@ if __name__ == "__main__":
     CMOS2DPHY_INST_NAME = "csi2_inst"
 
     # create names
-
-    lanes_name_part = "4lanes" if args.lanes == 4 else "2lanes"
+    four_lanes = True if args.lanes == 4 else False
+    lanes_name_part = "4lanes" if four_lanes else "2lanes"
     output_dir_rel = os.path.join("build", f"{args.video_format}-{lanes_name_part}")
 
     output_dir = os.path.abspath(output_dir_rel)
@@ -211,10 +215,10 @@ if __name__ == "__main__":
     srcs = [top_path]
     sbx_export_inst = [f"{CLARITY_DESIGN_NAME}/{CMOS2DPHY_INST_NAME}"]
 
-    os.makedirs(output_dir, exist_ok=True)
-    prepare_top_sources(output_dir)
-
     four_lanes = True if args.lanes == 4 else False
+    os.makedirs(output_dir, exist_ok=True)
+    prepare_top_sources(output_dir, args.video_format, four_lanes, args.sim)
+
     prepare_cmos2dphy_sources(
         lattice_tpl_dir, patch_dir, output_dir, args.video_format, four_lanes
     )

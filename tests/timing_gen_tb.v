@@ -27,7 +27,7 @@ module iver_tb;
 	integer k;
 	integer j;
 
-	reg reset_n = 0;
+	reg reset = 1;
 	reg vsync;
 	reg hsync;
 	wire fv_o;
@@ -37,8 +37,8 @@ module iver_tb;
 		$dumpfile("timing.vcd");
 		$dumpvars(0, iver_tb);
 		#5000
-		#50 reset_n = 0;
-		#50 reset_n = 1;
+		#50 reset = 1;
+		#50 reset = 0;
 		#5000
 		for (i = 0; i < FRAMES; i = i + 1) begin
 			vsync = 1;
@@ -62,7 +62,7 @@ module iver_tb;
 
 	timing_gen UUT (
 		.pix_clk(clk),
-		.n_rst(reset_n),
+		.pix_rst(reset),
 		.vsync_i(vsync),
 		.hsync_i(hsync),
 		.fv_o(fv_o),

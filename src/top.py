@@ -21,131 +21,131 @@ from sdi2mipi import SDI2MIPI
 
 
 class Top(Module):
-    def __init__(self, instance=False):
+    def __init__(self, video_format="720p60", four_lanes=False, sim=False):
         self.clock_domains.sys = ClockDomain("sys")
         self.clock_domains.hfc = ClockDomain("hfc")
 
         # IOs
+        common_ios = {
+            "i_pixdata_d0_i": Signal(8, name="csi2_inst_data_i"),
+            "i_pix_clk_i": Signal(name="csi2_inst_pix_clk_i"),
+            "io_clk_n_o": Signal(name="csi2_inst_clk_n_o"),
+            "io_clk_p_o": Signal(name="csi2_inst_clk_p_o"),
+            "io_d0_n_io": Signal(name="csi2_inst_d0_n_io"),
+            "io_d0_p_io": Signal(name="csi2_inst_d0_p_io"),
+            "io_d1_n_o": Signal(name="csi2_inst_d1_n_o"),
+            "io_d1_p_o": Signal(name="csi2_inst_d1_p_o"),
+            "o_pll_lock_o": Signal(name="csi2_inst_pll_lock_o"),
+            "o_tinit_done_o": Signal(name="csi2_inst_tinit_done_o"),
+            "i_reset_n_i": Signal(name="csi2_inst_reset_n_io"),
+        }
+        ext_ios = {
+            "led": Signal(name="led"),
+            "hfclkout": Signal(name="hfclkout"),
+            "lfclkout": Signal(name="lfclkout"),
+            "i_vsync_i": Signal(name="csi2_inst_vsync"),
+            "i_hsync_i": Signal(name="csi2_inst_hsync"),
+        }
+        self.ios = set(dict(**common_ios, **ext_ios).values())
 
-        self.csi2_inst_pix_clk_i = Signal()
-        self.csi2_inst_reset_n_o = Signal()
-
-        self.csi2_inst_data_i = Signal(8)
-        self.csi2_inst_hsync = Signal()
-        self.csi2_inst_vsync = Signal()
-        self.csi2_inst_clk_n_o = Signal()
-        self.csi2_inst_clk_p_o = Signal()
-        self.csi2_inst_d0_n_io = Signal()
-        self.csi2_inst_d0_p_io = Signal()
-        self.csi2_inst_d1_n_o = Signal()
-        self.csi2_inst_d1_p_o = Signal()
-        self.csi2_inst_pll_lock_o = Signal()
-        self.csi2_inst_tinit_done_o = Signal()
-
-        self.led = Signal()
-        self.hfclkout = Signal()
-        self.lfclkout = Signal()
-
-        self.ios = {
-            self.csi2_inst_pix_clk_i,
-            self.csi2_inst_reset_n_o,
-            self.csi2_inst_data_i,
-            self.csi2_inst_hsync,
-            self.csi2_inst_vsync,
-            self.csi2_inst_clk_n_o,
-            self.csi2_inst_clk_p_o,
-            self.csi2_inst_d0_n_io,
-            self.csi2_inst_d0_p_io,
-            self.csi2_inst_d1_n_o,
-            self.csi2_inst_d1_p_o,
-            self.csi2_inst_pll_lock_o,
-            self.csi2_inst_tinit_done_o,
-            self.led,
-            self.hfclkout,
-            self.lfclkout,
+        base_csi2_inst_signals = {
+            "i_pd_dphy_i": Signal(name="csi2_inst_pd_dphy_i"),
+            "i_dvalid_i": Signal(name="csi2_inst_dvalid_i"),
+            "i_fv_i": Signal(name="fv_oi"),
+            "i_lv_i": Signal(name="lv_oi"),
         }
 
         # Logic (clk & rst)
-
-        n_rst = Signal()
+        csi2_inst_pix_clk_i = common_ios["i_pix_clk_i"]
+        hfclkout = ext_ios["hfclkout"]
+        lfclkout = ext_ios["lfclkout"]
+        n_rst = common_ios["i_reset_n_i"]
         self.comb += [
-            self.sys.clk.eq(self.csi2_inst_pix_clk_i),
+            self.sys.clk.eq(csi2_inst_pix_clk_i),
             self.sys.rst.eq(~n_rst),
+            self.hfc.clk.eq(hfclkout),
         ]
 
-        self.comb += [self.hfc.clk.eq(self.hfclkout), self.hfc.rst.eq(~n_rst)]
-
         # Logic (other)
+        fv_oi = base_csi2_inst_signals["i_fv_i"]
+        lv_oi = base_csi2_inst_signals["i_lv_i"]
+        csi2_inst_dvalid_i = base_csi2_inst_signals["i_dvalid_i"]
+        csi2_inst_pd_dphy_i = base_csi2_inst_signals["i_pd_dphy_i"]
 
-        self.comb += self.csi2_inst_reset_n_o.eq(~n_rst)
+        # fmt: off
+        self.comb += [
+            csi2_inst_dvalid_i.eq(lv_oi),
+            csi2_inst_pd_dphy_i.eq(0)
+        ]
+        # fmt: on
 
-        fv_oi = Signal()
-        lv_oi = Signal()
-        csi2_inst_dvalid_i = Signal()
-        csi2_inst_pd_dphy_i = Signal()
-
-        self.comb += [csi2_inst_dvalid_i.eq(lv_oi), csi2_inst_pd_dphy_i.eq(0)]
-
-        self.specials += Instance(
-            "csi2_inst",
-            i_pixdata_d0_i=self.csi2_inst_data_i,
-            i_dvalid_i=csi2_inst_dvalid_i,
-            i_fv_i=fv_oi,
-            i_lv_i=lv_oi,
-            i_pd_dphy_i=csi2_inst_pd_dphy_i,
-            i_pix_clk_i=self.csi2_inst_pix_clk_i,
-            i_reset_n_i=n_rst,
-            io_clk_n_o=self.csi2_inst_clk_n_o,
-            io_clk_p_o=self.csi2_inst_clk_p_o,
-            io_d0_n_io=self.csi2_inst_d0_n_io,
-            io_d0_p_io=self.csi2_inst_d0_p_io,
-            io_d1_n_o=self.csi2_inst_d1_n_o,
-            io_d1_p_o=self.csi2_inst_d1_p_o,
-            o_pll_lock_o=self.csi2_inst_pll_lock_o,
-            o_tinit_done_o=self.csi2_inst_tinit_done_o,
-        )
-
-        if instance:
-            self.specials += Instance(
-                "sdi2mipi",
-                i_n_rst=n_rst,
-                i_sys_clk=self.csi2_inst_pix_clk_i,
-                i_vsync_i=self.csi2_inst_vsync,
-                i_hsync_i=self.csi2_inst_hsync,
-                i_data_i=self.csi2_inst_data_i,
-                o_fv_o=fv_oi,
-                o_lv_o=lv_oi,
-            )
+        base_csi2_inst_ios = dict(**common_ios, **base_csi2_inst_signals)
+        if four_lanes:
+            ext_csi2_inst_signals = {
+                "io_d2_n_o": Signal(name="csi2_inst_d2_n_o"),
+                "io_d2_p_o": Signal(name="csi2_inst_d2_p_o"),
+                "io_d3_n_o": Signal(name="csi2_inst_d3_n_o"),
+                "io_d3_p_o": Signal(name="csi2_inst_d3_p_o"),
+            }
+            ext_csi2_inst_ios = dict(**base_csi2_inst_ios, **ext_csi2_inst_signals)
+            self.specials += Instance("csi2_inst", **ext_csi2_inst_ios)
         else:
-            self.submodules.sdi2mipi = SDI2MIPI(video_format="720p60", four_lanes=False)
-            self.comb += [
-                self.sdi2mipi.vsync_i.eq(self.csi2_inst_vsync),
-                self.sdi2mipi.hsync_i.eq(self.csi2_inst_hsync),
-                self.sdi2mipi.data_i.eq(self.csi2_inst_data_i),
-                fv_oi.eq(self.sdi2mipi.fv_o),
-                lv_oi.eq(self.sdi2mipi.lv_o),
-            ]
+            self.specials += Instance("csi2_inst", **base_csi2_inst_ios)
 
+        csi2_inst_vsync = ext_ios["i_vsync_i"]
+        csi2_inst_hsync = ext_ios["i_hsync_i"]
+        csi2_inst_data_i = common_ios["i_pixdata_d0_i"]
+        self.submodules.sdi2mipi = SDI2MIPI(video_format, four_lanes, sim)
+        self.comb += [
+            self.sdi2mipi.vsync_i.eq(csi2_inst_vsync),
+            self.sdi2mipi.hsync_i.eq(csi2_inst_hsync),
+            self.sdi2mipi.data_i.eq(csi2_inst_data_i),
+            fv_oi.eq(self.sdi2mipi.fv_o),
+            lv_oi.eq(self.sdi2mipi.lv_o),
+        ]
+
+        # fmt: off
         self.specials += Instance(
             "OSCI",
-            p_HFCLKDIV=2,
-            i_HFOUTEN=1,
-            o_HFCLKOUT=self.hfclkout,
-            o_LFCLKOUT=self.lfclkout,
+            p_HFCLKDIV = 2,
+            i_HFOUTEN  = 1,
+            o_HFCLKOUT = hfclkout,
+            o_LFCLKOUT = lfclkout,
         )
+        # fmt: on
 
         MAX_COUNTER = 24000000
         counter = Signal(max=MAX_COUNTER)
+        led = ext_ios["led"]
 
-        self.sync.hfc += [
-            counter.eq(counter + 1),
-            # fmt: off
-            If(counter == MAX_COUNTER,
-                self.led.eq(~self.led),
-                If(~n_rst, n_rst.eq(~n_rst)),
-            ),
-            # fmt: on
-        ]
+        if video_format == "1080p60" and four_lanes:
+            rst_out_enable = Signal()
+            self.sync.hfc += [
+                # fmt: off
+                counter.eq(counter + 1),
+                If(counter > MAX_COUNTER,
+                    counter.eq(0),
+                    led.eq(~led),
+                    If(~rst_out_enable,
+                        rst_out_enable.eq(1),
+                        n_rst.eq(~n_rst),
+                    ),
+                ),
+                # fmt: on
+            ]
+        else:
+            self.sync.hfc += [
+                # fmt: off
+                counter.eq(counter + 1),
+                If(counter > MAX_COUNTER,
+                    counter.eq(0),
+                    led.eq(~led),
+                    If(~n_rst,
+                        n_rst.eq(~n_rst),
+                    ),
+                ),
+                # fmt: on
+            ]
 
 
 if __name__ == "__main__":

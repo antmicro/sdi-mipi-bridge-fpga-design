@@ -1,1 +1,3 @@
--e third-party/antmicro-sdi-bridge-sdi-mipi-ip/.
+migen==0.9.2
+black==22.12.0
+pytest==7.2.1
