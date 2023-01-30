@@ -1,0 +1,23 @@
+name: Check formatting
+on: [push, pull_request]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up python
+        uses: actions/setup-python@v2
+
+      - name: Install prerequisites
+        run: |
+          sudo apt update
+          sudo apt install -y git
+          pip3 install -r requirements.txt
+
+      - name: Format
+        run: |
+          make format && test $(git status --porcelain | wc -l) -eq 0 || { git --no-pager diff; false; }

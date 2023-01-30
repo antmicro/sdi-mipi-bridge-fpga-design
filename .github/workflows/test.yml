@@ -1,0 +1,47 @@
+name: Tests
+on: [push, pull_request]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    env:
+      IVERILOG_VERSION: v12_0
+
+    steps:
+      - name: Setup repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+
+      - name: Install prerequisites
+        run: |
+          sudo apt update
+          sudo apt install -y git
+          pip3 install -r requirements.txt
+          pip3 install -e .
+
+      - name: Install iverilog
+        run: |
+          sudo apt install -y build-essential autotools-dev autoconf gperf flex bison
+          git clone https://github.com/steveicarus/iverilog iverilog
+          pushd iverilog
+            git checkout ${IVERILOG_VERSION}
+            chmod u+rwx ./autoconf.sh
+            ./autoconf.sh
+            ./configure
+            make -j$(nproc)
+            sudo make install
+          popd
+
+      - name: Run tests
+        run: |
+          make test
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: tests
+          path: |
+            tests/build
