@@ -20,7 +20,6 @@ jobs:
           sudo apt update
           sudo apt install -y git
           pip3 install -r requirements.txt
-          pip3 install -e .
 
       - name: Install iverilog
         run: |
