@@ -4,7 +4,7 @@ Copyright 2021-2023 [Antmicro](https://antmicro.com/)
 
 ## Introduction
 
-This is the FPGA design for the SDI to MIPI CSI-2 bridge.
+This is the FPGA design for the [SDI to MIPI CSI-2 bridge](https://github.com/antmicro/sdi-mipi-bridge).
 The design targets the Lattice Diamond toolchain and uses video data acquired
 from the Semtech GS2971A deserializer to generate correct MIPI timings.
 It converts `hsync` and `vsync` signals to `lv` and `fv` that are passed down
