@@ -5,6 +5,10 @@ jobs:
   tests:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        python_version: ['3.10', '3.11']
+
     env:
       IVERILOG_VERSION: v12_0
 
@@ -14,6 +18,8 @@ jobs:
 
       - name: Set up Python
         uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python_version }}
 
       - name: Install prerequisites
         run: |
