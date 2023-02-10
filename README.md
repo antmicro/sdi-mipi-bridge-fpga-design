@@ -39,7 +39,7 @@ pip3 install -r requirements.txt
 After you've prepared your environment, you can build the project with the following command:
 
 ```
-./run --video-format=<video-format> --lanes=<lanes>
+./run.py --video-format=<video-format> --lanes=<lanes>
 ```
 where:
 
