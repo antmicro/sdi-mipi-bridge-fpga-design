@@ -30,8 +30,8 @@ class Divider(Module):
 
         self.rst_i = ResetSignal()
         self.clk_i = ClockSignal()
-        self.mode_i = Signal()
-        self.pix_clk_o = Signal()
+        self.mode_i = Signal(name="mode_i")
+        self.pix_clk_o = Signal(name="pix_clk_o")
 
         self.ios = {self.mode_i, self.pix_clk_o}
 

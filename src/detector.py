@@ -26,9 +26,9 @@ class DetectTRS(Module):
 
     def __init__(self):
         # IOs
-        self.data_i = Signal(8)
-        self.lv_i = Signal()
-        self.n_align_o = Signal()
+        self.data_i = Signal(8, name="data_i")
+        self.lv_i = Signal(name="lv_i")
+        self.n_align_o = Signal(name="n_align_o")
         self.detector_rst = Signal()
 
         # Sys clock divided by 2

@@ -36,11 +36,11 @@ class SDI2MIPI(Module):
 
         self.clk = ClockSignal()
         self.rst = ResetSignal()
-        self.vsync_i = Signal()
-        self.hsync_i = Signal()
-        self.data_i = Signal(8)
-        self.fv_o = Signal()
-        self.lv_o = Signal()
+        self.vsync_i = Signal(name="vsync_i")
+        self.hsync_i = Signal(name="hsync_i")
+        self.data_i = Signal(8, name="data_i")
+        self.fv_o = Signal(name="fv_o")
+        self.lv_o = Signal(name="lv_o")
 
         self.ios = {
             self.vsync_i,

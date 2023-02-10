@@ -23,9 +23,9 @@ class Aligner(Module):
     """
 
     def __init__(self):
-        self.detector_rst_o = Signal()
-        self.n_align_i = Signal()
-        self.align_o = Signal()
+        self.detector_rst_o = Signal(name="detector_rst_o")
+        self.n_align_i = Signal(name="n_align_i")
+        self.align_o = Signal(name="align_o")
 
         # Input clock from deserializer
         # doubled pixel clock frequency for given resolution
