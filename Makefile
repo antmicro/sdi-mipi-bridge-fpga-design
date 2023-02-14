@@ -14,7 +14,7 @@
 
 
 define GENERATE_PROJECT =
-python3 run.py --video-format=$(1) --lanes=$(2)
+python3 build.py --video-format=$(1) --lanes=$(2)
 endef
 
 .PHONY: test
@@ -32,7 +32,7 @@ format-diff: ## Print formatter diff for each source file
 .PHONY: 720p60-2lanes
 720p60-2lanes: build/720p60-2lanes ## Generate bitstream for 720p60 video format, 2 lanes
 
-build/720p60-2lanes: run.py
+build/720p60-2lanes: build.py
 build/720p60-2lanes: lattice/CMOS2DPHY/CMOS2DPHY.v
 build/720p60-2lanes: lattice/CMOS2DPHY/generate_core.tcl
 build/720p60-2lanes: lattice/CMOS2DPHY/720p60-2lanes/CMOS2DPHY.sbx
@@ -43,7 +43,7 @@ build/720p60-2lanes: | $(BUILD_DIR)
 .PHONY: 720p60-4lanes
 720p60-4lanes: build/720p60-4lanes ## Generate bitstream for 720p60 video format, 4 lanes
 
-build/720p60-4lanes: run.py
+build/720p60-4lanes: build.py
 build/720p60-4lanes: lattice/CMOS2DPHY/CMOS2DPHY.v
 build/720p60-4lanes: lattice/CMOS2DPHY/generate_core.tcl
 build/720p60-4lanes: lattice/CMOS2DPHY/720p60-4lanes/CMOS2DPHY.sbx
@@ -54,7 +54,7 @@ build/720p60-4lanes: | $(BUILD_DIR)
 .PHONY: 1080p30-2lanes
 1080p30-2lanes: build/1080p30-2lanes ## Generate bitstream for 1080p30 video format, 2 lanes
 
-build/1080p30-2lanes: run.py
+build/1080p30-2lanes: build.py
 build/1080p30-2lanes: lattice/CMOS2DPHY/CMOS2DPHY.v
 build/1080p30-2lanes: lattice/CMOS2DPHY/generate_core.tcl
 build/1080p30-2lanes: lattice/CMOS2DPHY/1080p30-2lanes/CMOS2DPHY.sbx
@@ -65,7 +65,7 @@ build/1080p30-2lanes: | $(BUILD_DIR)
 .PHONY: 1080p30-4lanes
 1080p30-4lanes: build/1080p30-4lanes ## Generate bitstream for 1080p30 video format, 4 lanes
 
-build/1080p30-4lanes: run.py
+build/1080p30-4lanes: build.py
 build/1080p30-4lanes: lattice/CMOS2DPHY/CMOS2DPHY.v
 build/1080p30-4lanes: lattice/CMOS2DPHY/generate_core.tcl
 build/1080p30-4lanes: lattice/CMOS2DPHY/1080p30-4lanes/CMOS2DPHY.sbx
@@ -76,7 +76,7 @@ build/1080p30-4lanes: | $(BUILD_DIR)
 .PHONY: 1080p60-2lanes
 1080p60-2lanes: build/1080p60-2lanes ## Generate bitstream for 1080p60 video format, 2 lanes
 
-build/1080p60-2lanes: run.py
+build/1080p60-2lanes: build.py
 build/1080p60-2lanes: lattice/CMOS2DPHY/CMOS2DPHY.v
 build/1080p60-2lanes: lattice/CMOS2DPHY/generate_core.tcl
 build/1080p60-2lanes: lattice/CMOS2DPHY/1080p60-2lanes/CMOS2DPHY.sbx
@@ -87,7 +87,7 @@ build/1080p60-2lanes: | $(BUILD_DIR)
 .PHONY: 1080p60-4lanes
 1080p60-4lanes: build/1080p60-4lanes ## Generate bitstream for 1080p60 video format, 4 lanes
 
-build/1080p60-4lanes: run.py
+build/1080p60-4lanes: build.py
 build/1080p60-4lanes: lattice/CMOS2DPHY/CMOS2DPHY.v
 build/1080p60-4lanes: lattice/CMOS2DPHY/generate_core.tcl
 build/1080p60-4lanes: lattice/CMOS2DPHY/1080p60-4lanes/CMOS2DPHY.sbx
