@@ -76,7 +76,7 @@ class Top(Module):
         # fmt: off
         self.comb += [
             csi2_inst_dvalid_i.eq(lv_oi),
-            csi2_inst_pd_dphy_i.eq(0)
+            csi2_inst_pd_dphy_i.eq(0),
         ]
         # fmt: on
 
@@ -116,38 +116,23 @@ class Top(Module):
         )
         # fmt: on
 
-        MAX_COUNTER = 24000000
-        counter = Signal(max=MAX_COUNTER)
+        COUNTER_1s = 24000000
+        COUNTER_100us = COUNTER_1s // 10000
+        counter = Signal(max=COUNTER_1s)
         led = ext_ios["led"]
 
-        if video_format == "1080p60" and four_lanes:
-            rst_out_enable = Signal()
-            self.sync.hfc += [
-                # fmt: off
-                counter.eq(counter + 1),
-                If(counter > MAX_COUNTER,
-                    counter.eq(0),
-                    led.eq(~led),
-                    If(~rst_out_enable,
-                        rst_out_enable.eq(1),
-                        n_rst.eq(~n_rst),
-                    ),
-                ),
-                # fmt: on
-            ]
-        else:
-            self.sync.hfc += [
-                # fmt: off
-                counter.eq(counter + 1),
-                If(counter > MAX_COUNTER,
-                    counter.eq(0),
-                    led.eq(~led),
-                    If(~n_rst,
-                        n_rst.eq(~n_rst),
-                    ),
-                ),
-                # fmt: on
-            ]
+        self.sync.hfc += [
+            # fmt: off
+            counter.eq(counter + 1),
+            If((counter > COUNTER_100us) & (~n_rst),
+                n_rst.eq(1),
+            ),
+            If(counter > COUNTER_1s,
+                counter.eq(0),
+                led.eq(~led),
+            ),
+            # fmt: on
+        ]
 
 
 if __name__ == "__main__":
