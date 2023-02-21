@@ -35,20 +35,19 @@ class Top(Module):
             "io_d0_p_io": Signal(name="csi2_inst_d0_p_io"),
             "io_d1_n_o": Signal(name="csi2_inst_d1_n_o"),
             "io_d1_p_o": Signal(name="csi2_inst_d1_p_o"),
-            "o_pll_lock_o": Signal(name="csi2_inst_pll_lock_o"),
-            "o_tinit_done_o": Signal(name="csi2_inst_tinit_done_o"),
-            "i_reset_n_i": Signal(name="csi2_inst_reset_n_io"),
+            "o_tinit_done_o": Signal(name="user_led"),
         }
         ext_ios = {
             "led": Signal(name="led"),
-            "hfclkout": Signal(name="hfclkout"),
-            "lfclkout": Signal(name="lfclkout"),
             "i_vsync_i": Signal(name="csi2_inst_vsync"),
             "i_hsync_i": Signal(name="csi2_inst_hsync"),
+            "reset_button": Signal(name="reset_button")
         }
         self.ios = set(dict(**common_ios, **ext_ios).values())
 
         base_csi2_inst_signals = {
+            "i_reset_n_i": Signal(name="csi2_inst_reset_n_io"),
+            "o_pll_lock_o": Signal(name="csi2_inst_pll_lock_o"),
             "i_pd_dphy_i": Signal(name="csi2_inst_pd_dphy_i"),
             "i_dvalid_i": Signal(name="csi2_inst_dvalid_i"),
             "i_fv_i": Signal(name="fv_oi"),
@@ -57,13 +56,15 @@ class Top(Module):
 
         # Logic (clk & rst)
         csi2_inst_pix_clk_i = common_ios["i_pix_clk_i"]
-        hfclkout = ext_ios["hfclkout"]
-        lfclkout = ext_ios["lfclkout"]
-        n_rst = common_ios["i_reset_n_i"]
+        hfclkout = Signal(name="hfclkout")
+        lfclkout = Signal(name="lfclkout")
+        reset_button = ext_ios["reset_button"]
+        n_rst = base_csi2_inst_signals["i_reset_n_i"]
         self.comb += [
             self.sys.clk.eq(csi2_inst_pix_clk_i),
-            self.sys.rst.eq(~n_rst),
+            self.sys.rst.eq(~n_rst | ~reset_button),
             self.hfc.clk.eq(hfclkout),
+            self.hfc.rst.eq(~reset_button),
         ]
 
         # Logic (other)
@@ -87,6 +88,7 @@ class Top(Module):
                 "io_d3_n_o": Signal(name="csi2_inst_d3_n_o"),
                 "io_d3_p_o": Signal(name="csi2_inst_d3_p_o"),
             }
+            self.ios.update(ext_csi2_inst_signals.values())
             ext_csi2_inst_ios = dict(**base_csi2_inst_ios, **ext_csi2_inst_signals)
             self.specials += Instance("csi2_inst", **ext_csi2_inst_ios)
         else:

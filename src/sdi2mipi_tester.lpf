@@ -17,11 +17,10 @@ BLOCK RESETPATHS ;
 BLOCK ASYNCPATHS ;
 IOBUF ALLPORTS IO_TYPE=LVCMOS33 ;
 
-LOCATE COMP "csi2_inst_reset_n_io" SITE "D10" ;
+LOCATE COMP "reset_button" SITE "D10" ;
 
 LOCATE COMP "csi2_inst_pix_clk_i" SITE "J7" ;
-LOCATE COMP "csi2_inst_tinit_done_o" SITE "J10" ;
-LOCATE COMP "csi2_inst_pll_lock_o" SITE "J9";
+LOCATE COMP "user_led" SITE "J10" ;
 
 LOCATE COMP "csi2_inst_hsync" SITE "F1";
 LOCATE COMP "csi2_inst_vsync" SITE "F2";
@@ -37,4 +36,13 @@ LOCATE COMP "csi2_inst_data_i[2]" SITE "E1";
 LOCATE COMP "csi2_inst_data_i[1]" SITE "J3";
 LOCATE COMP "csi2_inst_data_i[0]" SITE "J4";
 
-FREQUENCY PORT "csi2_inst_pix_clk_i" 148.500000 MHz ;
+LOCATE COMP "csi2_inst_clk_n_o" SITE "MIPIDPHY0";
+LOCATE COMP "csi2_inst_clk_p_o" SITE "MIPIDPHY0";
+LOCATE COMP "csi2_inst_d0_n_io" SITE "MIPIDPHY0";
+LOCATE COMP "csi2_inst_d0_p_io" SITE "MIPIDPHY0";
+LOCATE COMP "csi2_inst_d1_n_o" SITE "MIPIDPHY0";
+LOCATE COMP "csi2_inst_d1_p_o" SITE "MIPIDPHY0";
+LOCATE COMP "csi2_inst_d2_n_o" SITE "MIPIDPHY0";
+LOCATE COMP "csi2_inst_d2_p_o" SITE "MIPIDPHY0";
+LOCATE COMP "csi2_inst_d3_n_o" SITE "MIPIDPHY0";
+LOCATE COMP "csi2_inst_d3_p_o" SITE "MIPIDPHY0";
