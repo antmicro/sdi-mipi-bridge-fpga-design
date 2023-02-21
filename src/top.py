@@ -27,26 +27,27 @@ class Top(Module):
 
         # IOs
         common_ios = {
-            "i_pixdata_d0_i": Signal(8, name="csi2_inst_data_i"),
-            "i_pix_clk_i": Signal(name="csi2_inst_pix_clk_i"),
-            "io_clk_n_o": Signal(name="csi2_inst_clk_n_o"),
-            "io_clk_p_o": Signal(name="csi2_inst_clk_p_o"),
-            "io_d0_n_io": Signal(name="csi2_inst_d0_n_io"),
-            "io_d0_p_io": Signal(name="csi2_inst_d0_p_io"),
-            "io_d1_n_o": Signal(name="csi2_inst_d1_n_o"),
-            "io_d1_p_o": Signal(name="csi2_inst_d1_p_o"),
-            "o_tinit_done_o": Signal(name="user_led"),
+            "i_pixdata_d0_i": Signal(8, name="deserializer_data_i"),
+            "i_pix_clk_i": Signal(name="deserializer_pix_clk_i"),
+            "io_clk_n_o": Signal(name="mipi_dphy_clk_n_o"),
+            "io_clk_p_o": Signal(name="mipi_dphy_clk_p_o"),
+            "io_d0_n_io": Signal(name="mipi_dphy_d0_n_io"),
+            "io_d0_p_io": Signal(name="mipi_dphy_d0_p_io"),
+            "io_d1_n_o": Signal(name="mipi_dphy_d1_n_o"),
+            "io_d1_p_o": Signal(name="mipi_dphy_d1_p_o"),
         }
         ext_ios = {
-            "led": Signal(name="led"),
-            "i_vsync_i": Signal(name="csi2_inst_vsync"),
-            "i_hsync_i": Signal(name="csi2_inst_hsync"),
-            "reset_button": Signal(name="reset_button")
+            "user_led": Signal(name="user_led"),
+            "cdone_led": Signal(name="cdone_led"),
+            "i_vsync_i": Signal(name="deserializer_vsync_i"),
+            "i_hsync_i": Signal(name="deserializer_hsync_i"),
+            "reset_button_n": Signal(name="reset_button_n"),
         }
         self.ios = set(dict(**common_ios, **ext_ios).values())
 
         base_csi2_inst_signals = {
             "i_reset_n_i": Signal(name="csi2_inst_reset_n_io"),
+            "o_tinit_done_o": Signal(name="csi2_inst_tinit_done_o"),
             "o_pll_lock_o": Signal(name="csi2_inst_pll_lock_o"),
             "i_pd_dphy_i": Signal(name="csi2_inst_pd_dphy_i"),
             "i_dvalid_i": Signal(name="csi2_inst_dvalid_i"),
@@ -58,16 +59,18 @@ class Top(Module):
         csi2_inst_pix_clk_i = common_ios["i_pix_clk_i"]
         hfclkout = Signal(name="hfclkout")
         lfclkout = Signal(name="lfclkout")
-        reset_button = ext_ios["reset_button"]
+        reset_button_n = ext_ios["reset_button_n"]
         n_rst = base_csi2_inst_signals["i_reset_n_i"]
         self.comb += [
             self.sys.clk.eq(csi2_inst_pix_clk_i),
-            self.sys.rst.eq(~n_rst | ~reset_button),
+            self.sys.rst.eq(~n_rst | ~reset_button_n),
             self.hfc.clk.eq(hfclkout),
-            self.hfc.rst.eq(~reset_button),
+            self.hfc.rst.eq(~reset_button_n),
         ]
 
         # Logic (other)
+        user_led = ext_ios["user_led"]
+        tinit_done = base_csi2_inst_signals["o_tinit_done_o"]
         fv_oi = base_csi2_inst_signals["i_fv_i"]
         lv_oi = base_csi2_inst_signals["i_lv_i"]
         csi2_inst_dvalid_i = base_csi2_inst_signals["i_dvalid_i"]
@@ -77,16 +80,17 @@ class Top(Module):
         self.comb += [
             csi2_inst_dvalid_i.eq(lv_oi),
             csi2_inst_pd_dphy_i.eq(0),
+            user_led.eq(tinit_done),
         ]
         # fmt: on
 
         base_csi2_inst_ios = dict(**common_ios, **base_csi2_inst_signals)
         if four_lanes:
             ext_csi2_inst_signals = {
-                "io_d2_n_o": Signal(name="csi2_inst_d2_n_o"),
-                "io_d2_p_o": Signal(name="csi2_inst_d2_p_o"),
-                "io_d3_n_o": Signal(name="csi2_inst_d3_n_o"),
-                "io_d3_p_o": Signal(name="csi2_inst_d3_p_o"),
+                "io_d2_n_o": Signal(name="mipi_dphy_d2_n_o"),
+                "io_d2_p_o": Signal(name="mipi_dphy_d2_p_o"),
+                "io_d3_n_o": Signal(name="mipi_dphy_d3_n_o"),
+                "io_d3_p_o": Signal(name="mipi_dphy_d3_p_o"),
             }
             self.ios.update(ext_csi2_inst_signals.values())
             ext_csi2_inst_ios = dict(**base_csi2_inst_ios, **ext_csi2_inst_signals)
@@ -119,7 +123,7 @@ class Top(Module):
         COUNTER_1s = 24000000
         COUNTER_100us = COUNTER_1s // 10000
         counter = Signal(max=COUNTER_1s)
-        led = ext_ios["led"]
+        cdone_led = ext_ios["cdone_led"]
 
         self.sync.hfc += [
             # fmt: off
@@ -129,7 +133,7 @@ class Top(Module):
             ),
             If(counter > COUNTER_1s,
                 counter.eq(0),
-                led.eq(~led),
+                cdone_led.eq(~cdone_led),
             ),
             # fmt: on
         ]
