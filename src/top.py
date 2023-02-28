@@ -41,7 +41,7 @@ class Top(Module):
             "cdone_led": Signal(name="cdone_led"),
             "i_vsync_i": Signal(name="deserializer_vsync_i"),
             "i_hsync_i": Signal(name="deserializer_hsync_i"),
-            "reset_button_n": Signal(name="reset_button_n"),
+            "des_reset_n": Signal(name="des_reset_n"),
         }
         self.ios = set(dict(**common_ios, **ext_ios).values())
 
@@ -59,13 +59,13 @@ class Top(Module):
         csi2_inst_pix_clk_i = common_ios["i_pix_clk_i"]
         hfclkout = Signal(name="hfclkout")
         lfclkout = Signal(name="lfclkout")
-        reset_button_n = ext_ios["reset_button_n"]
+        des_reset_n = ext_ios["des_reset_n"]
         n_rst = base_csi2_inst_signals["i_reset_n_i"]
         self.comb += [
             self.sys.clk.eq(csi2_inst_pix_clk_i),
-            self.sys.rst.eq(~n_rst | ~reset_button_n),
+            self.sys.rst.eq(~n_rst),
             self.hfc.clk.eq(hfclkout),
-            self.hfc.rst.eq(~reset_button_n),
+            des_reset_n.eq(n_rst),
         ]
 
         # Logic (other)
@@ -121,15 +121,17 @@ class Top(Module):
         # fmt: on
 
         COUNTER_1s = 24000000
-        COUNTER_100us = COUNTER_1s // 10000
+        COUNTER_100ms = COUNTER_1s // 10
         counter = Signal(max=COUNTER_1s)
         cdone_led = ext_ios["cdone_led"]
 
         self.sync.hfc += [
             # fmt: off
             counter.eq(counter + 1),
-            If((counter > COUNTER_100us) & (~n_rst),
-                n_rst.eq(1),
+            If(counter > COUNTER_100ms,
+                If(~n_rst,
+                    n_rst.eq(1),
+                ),
             ),
             If(counter > COUNTER_1s,
                 counter.eq(0),

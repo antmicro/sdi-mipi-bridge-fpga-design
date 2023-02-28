@@ -17,7 +17,7 @@ BLOCK RESETPATHS ;
 BLOCK ASYNCPATHS ;
 IOBUF ALLPORTS IO_TYPE=LVCMOS33 ;
 
-LOCATE COMP "reset_button_n" SITE "D10" ;
+LOCATE COMP "des_reset_n" SITE "D10" ;
 
 LOCATE COMP "deserializer_pix_clk_i" SITE "J7" ;
 LOCATE COMP "user_led" SITE "J10" ;
