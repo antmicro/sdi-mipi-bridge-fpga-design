@@ -60,12 +60,12 @@ class Top(Module):
         hfclkout = Signal(name="hfclkout")
         lfclkout = Signal(name="lfclkout")
         des_reset_n = ext_ios["des_reset_n"]
-        n_rst = base_csi2_inst_signals["i_reset_n_i"]
+        rst_n = base_csi2_inst_signals["i_reset_n_i"]
         self.comb += [
             self.sys.clk.eq(csi2_inst_pix_clk_i),
-            self.sys.rst.eq(~n_rst),
+            self.sys.rst.eq(~rst_n),
             self.hfc.clk.eq(hfclkout),
-            des_reset_n.eq(n_rst),
+            des_reset_n.eq(rst_n),
         ]
 
         # Logic (other)
@@ -129,8 +129,8 @@ class Top(Module):
             # fmt: off
             counter.eq(counter + 1),
             If(counter > COUNTER_100ms,
-                If(~n_rst,
-                    n_rst.eq(1),
+                If(~rst_n,
+                    rst_n.eq(1),
                 ),
             ),
             If(counter > COUNTER_1s,
