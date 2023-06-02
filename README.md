@@ -50,4 +50,4 @@ The output files will be generated in the `build/<video-format>-<lanes>` directo
 
 ## Software
 
-Detailed instructions about software support is available in the [SDI MIPI Bridge repository](https://github.com/antmicro/sdi-mipi-bridge/blob/master/sw_setup_l4t.rst).
+Detailed instructions about software support is available in the [software section](https://antmicro.github.io/sdi-mipi-bridge/software.html) of the SDI to MIPI CSI-2 video platform documentation.
