@@ -47,7 +47,8 @@ def run_patch(patch, file, **kwargs):
 def prepare_cmos2dphy_sources(
     lattice_tpl_dir, patch_dir, output_dir, video_format="720p60", four_lanes=False
 ):
-
+    if video_format == "1080p50":
+        video_format = "1080p60"
     # prepare paths
 
     lattice_dst_dir = os.path.abspath(os.path.join(output_dir, "lattice"))
@@ -171,7 +172,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--video-format",
         default="720p60",
-        help='Video format ("720p60", "1080p30", or "1080p60")',
+        help='Video format ("720p60", "1080p30", "1080p50" or "1080p60")',
     )
     parser.add_argument(
         "--lanes", type=int, default=2, help='Number of lanes ("2", or "4")'
@@ -183,7 +184,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    if args.video_format not in ("720p60", "1080p30", "1080p60"):
+    if args.video_format not in ("720p60", "1080p30", "1080p50", "1080p60"):
         sys.exit("Unsupported video format")
 
     if args.lanes not in (2, 4):

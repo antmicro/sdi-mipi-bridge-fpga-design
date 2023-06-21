@@ -27,8 +27,8 @@ def create_timing_generator(video_format="720p60", four_lanes=False):
     elif video_format == "1080p30":
         return TimingGenerator_1080p30()
 
-    elif video_format == "1080p60":
-        return TimingGenerator_1080p60()
+    elif video_format in ["1080p60", "1080p50"]:
+        return TimingGenerator_1080p60(video_format)
 
     else:
         assert False
@@ -67,6 +67,16 @@ def get_timings(video_format):
             "H_BACK_PORCH": 148,
             "H_SYNC": 44,
             "H_FRONT_PORCH": 88,
+            "V_ACTIVE": 1080,
+            "V_BACK_PORCH": 36,
+            "V_SYNC": 5,
+            "V_FRONT_PORCH": 4,
+        },
+        "1080p50": {
+            "H_ACTIVE": 1920,
+            "H_BACK_PORCH": 148,
+            "H_SYNC": 44,
+            "H_FRONT_PORCH": 528,
             "V_ACTIVE": 1080,
             "V_BACK_PORCH": 36,
             "V_SYNC": 5,
@@ -284,8 +294,8 @@ class TimingGenerator_1080p60(TimingGenerator):
     for 1080p60 resolutions
     """
 
-    def __init__(self):
-        timings = get_timings("1080p60")
+    def __init__(self, video_format="1080p60"):
+        timings = get_timings(video_format)
         super().__init__(timings)
 
         # Pixel clock cycles lost due to 3 levels of synchronous logic
