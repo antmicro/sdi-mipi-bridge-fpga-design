@@ -28,7 +28,7 @@ __all__ = ["SDI2MIPI"]
 
 
 class SDI2MIPI(Module):
-    supported_video_formats = ["720p60", "1080p30", "1080p50", "1080p60"]
+    supported_video_formats = ["720p60", "1080p25", "1080p30", "1080p50", "1080p60"]
 
     def __init__(self, video_format="720p60", four_lanes=False, sim=False):
         if video_format not in self.supported_video_formats:
@@ -54,7 +54,7 @@ class SDI2MIPI(Module):
         pix_clk = Signal()
         pix_rst = Signal()
 
-        if video_format in ["720p60", "1080p30"]:
+        if video_format in ["720p60", "1080p25", "1080p30"]:
             align_sig = Signal()
             if not sim:
                 # fmt: off

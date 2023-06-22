@@ -51,6 +51,17 @@ build/720p60-4lanes: lattice/CMOS2DPHY/720p60-4lanes/csi2_inst.lpc
 build/720p60-4lanes: | $(BUILD_DIR)
 	$(call GENERATE_PROJECT,720p60,4)
 
+.PHONY: 1080p25-2lanes
+1080p25-2lanes: build/1080p25-2lanes ## Generate bitstream for 1080p25 video format, 2 lanes
+
+build/1080p25-2lanes: build.py
+build/1080p25-2lanes: lattice/CMOS2DPHY/CMOS2DPHY.v
+build/1080p25-2lanes: lattice/CMOS2DPHY/generate_core.tcl
+build/1080p25-2lanes: lattice/CMOS2DPHY/1080p30-2lanes/CMOS2DPHY.sbx
+build/1080p25-2lanes: lattice/CMOS2DPHY/1080p30-2lanes/csi2_inst.lpc
+build/1080p25-2lanes: | $(BUILD_DIR)
+	$(call GENERATE_PROJECT,1080p25,2)
+
 .PHONY: 1080p30-2lanes
 1080p30-2lanes: build/1080p30-2lanes ## Generate bitstream for 1080p30 video format, 2 lanes
 
