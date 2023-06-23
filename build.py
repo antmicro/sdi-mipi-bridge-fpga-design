@@ -145,8 +145,8 @@ def prepare_diamond_project(
         run_diamondc(tcl_script_path, cwd=output_dir)
 
 
-def prepare_top_sources(output_dir, video_format, four_lanes, sim):
-    top = Top(video_format, four_lanes, sim)
+def prepare_top_sources(output_dir, four_lanes):
+    top = Top(four_lanes)
     top_path = os.path.join(output_dir, "top.v")
 
     forward_bb_declarations = """
@@ -220,7 +220,7 @@ if __name__ == "__main__":
 
     four_lanes = True if args.lanes == 4 else False
     os.makedirs(output_dir, exist_ok=True)
-    prepare_top_sources(output_dir, args.video_format, four_lanes, args.sim)
+    prepare_top_sources(output_dir, four_lanes)
 
     prepare_cmos2dphy_sources(
         lattice_tpl_dir, patch_dir, output_dir, args.video_format, four_lanes

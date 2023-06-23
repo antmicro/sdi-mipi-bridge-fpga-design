@@ -22,8 +22,8 @@ LOCATE COMP "des_reset_n" SITE "D10" ;
 LOCATE COMP "deserializer_pix_clk_i" SITE "J7" ;
 LOCATE COMP "user_led" SITE "J10" ;
 
-LOCATE COMP "deserializer_hsync_i" SITE "F1";
-LOCATE COMP "deserializer_vsync_i" SITE "F2";
+LOCATE COMP "deserializer_hblank_i" SITE "F1";
+LOCATE COMP "deserializer_vblank_i" SITE "F2";
 
 LOCATE COMP "cdone_led" SITE "J2" ;
 

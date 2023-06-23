@@ -17,10 +17,6 @@ define GENERATE_PROJECT =
 python3 build.py --video-format=$(1) --lanes=$(2)
 endef
 
-.PHONY: test
-test: ## Run tests
-	PYTHONPATH=${PWD} cd tests && pytest
-
 .PHONY: format
 format: ## Format sources
 	python3 -m black .

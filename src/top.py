@@ -17,11 +17,9 @@
 from migen import *
 from migen.fhdl.verilog import convert
 
-from sdi2mipi import SDI2MIPI
-
 
 class Top(Module):
-    def __init__(self, video_format="720p60", four_lanes=False, sim=False):
+    def __init__(self, four_lanes=False):
         self.clock_domains.sys = ClockDomain("sys")
         self.clock_domains.hfc = ClockDomain("hfc")
 
@@ -39,8 +37,8 @@ class Top(Module):
         ext_ios = {
             "user_led": Signal(name="user_led"),
             "cdone_led": Signal(name="cdone_led"),
-            "i_vsync_i": Signal(name="deserializer_vsync_i"),
-            "i_hsync_i": Signal(name="deserializer_hsync_i"),
+            "i_vblank_i": Signal(name="deserializer_vblank_i"),
+            "i_hblank_i": Signal(name="deserializer_hblank_i"),
             "des_reset_n": Signal(name="des_reset_n"),
         }
         self.ios = set(dict(**common_ios, **ext_ios).values())
@@ -65,7 +63,6 @@ class Top(Module):
             self.sys.clk.eq(csi2_inst_pix_clk_i),
             self.sys.rst.eq(~rst_n),
             self.hfc.clk.eq(hfclkout),
-            des_reset_n.eq(rst_n),
         ]
 
         # Logic (other)
@@ -98,16 +95,14 @@ class Top(Module):
         else:
             self.specials += Instance("csi2_inst", **base_csi2_inst_ios)
 
-        csi2_inst_vsync = ext_ios["i_vsync_i"]
-        csi2_inst_hsync = ext_ios["i_hsync_i"]
-        csi2_inst_data_i = common_ios["i_pixdata_d0_i"]
-        self.submodules.sdi2mipi = SDI2MIPI(video_format, four_lanes, sim)
+        vblank = ext_ios["i_vblank_i"]
+        hblank = ext_ios["i_hblank_i"]
+
+        vblank_d = Signal()
+        fv_ext = Signal()
         self.comb += [
-            self.sdi2mipi.vsync_i.eq(csi2_inst_vsync),
-            self.sdi2mipi.hsync_i.eq(csi2_inst_hsync),
-            self.sdi2mipi.data_i.eq(csi2_inst_data_i),
-            fv_oi.eq(self.sdi2mipi.fv_o),
-            lv_oi.eq(self.sdi2mipi.lv_o),
+            fv_oi.eq(~vblank | ~vblank_d | fv_ext),
+            lv_oi.eq(~hblank & ~vblank),
         ]
 
         # fmt: off
@@ -122,6 +117,7 @@ class Top(Module):
 
         COUNTER_1s = 24000000
         COUNTER_100ms = COUNTER_1s // 10
+        COUNTER_100us = COUNTER_100ms // 1000
         counter = Signal(max=COUNTER_1s)
         cdone_led = ext_ios["cdone_led"]
 
@@ -129,14 +125,35 @@ class Top(Module):
             # fmt: off
             counter.eq(counter + 1),
             If(counter > COUNTER_100ms,
-                If(~rst_n,
-                    rst_n.eq(1),
+                If(~des_reset_n,
+                    des_reset_n.eq(1),
                 ),
             ),
             If(counter > COUNTER_1s,
                 counter.eq(0),
                 cdone_led.eq(~cdone_led),
+                If(~rst_n,
+                    rst_n.eq(1),
+                ),
             ),
+            # fmt: on
+        ]
+
+        # Add a delay between vblank and hblank timings
+        fv_cnt = Signal(max=COUNTER_100us)
+        self.sync += [
+            # fmt: off
+            vblank_d.eq(vblank),
+            If((vblank ^ vblank_d),
+                fv_cnt.eq(COUNTER_100us),
+                fv_ext.eq(1),
+            ).Elif(fv_cnt == 0,
+                fv_cnt.eq(0),
+                fv_ext.eq(0),
+            ).Else(
+                fv_cnt.eq(fv_cnt - 1),
+                fv_ext.eq(1),
+            )
             # fmt: on
         ]
 
