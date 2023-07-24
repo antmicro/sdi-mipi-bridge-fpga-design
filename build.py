@@ -26,6 +26,10 @@ import argparse
 from top import Top
 from migen.fhdl.verilog import convert
 
+supported_formats_hd = ["720p25", "720p30", "720p50", "720p60", "1080p25", "1080p30"]
+supported_formats_3g = ["1080p50", "1080p60"]
+supported_data_rates = ["720p_hd", "1080p_hd", "1080p_3g"]
+
 
 def run_diamondc(tcl_script_path, **kwargs):
     if not os.path.isfile(tcl_script_path):
@@ -47,12 +51,7 @@ def run_patch(patch, file, **kwargs):
 def prepare_cmos2dphy_sources(
     lattice_tpl_dir, patch_dir, output_dir, video_format="720p60", four_lanes=False
 ):
-    if video_format == "1080p50":
-        video_format = "1080p60"
-    elif video_format == "1080p25":
-        video_format = "1080p30"
     # prepare paths
-
     lattice_dst_dir = os.path.abspath(os.path.join(output_dir, "lattice"))
 
     lanes_name_part = "4lanes" if four_lanes else "2lanes"
@@ -99,7 +98,7 @@ def prepare_cmos2dphy_sources(
         fd.flush()
         run_diamondc(tcl_script_path, cwd=output_dir)
 
-    if video_format == "1080p60":
+    if video_format == "1080p_3g":
         patch_path = os.path.abspath(
             os.path.join(patch_dir, config_dir_name, "csi2_inst.v.patch")
         )
@@ -167,14 +166,14 @@ endmodule
 if __name__ == "__main__":
 
     # parse arguments
-
     parser = argparse.ArgumentParser(
         description="Generate gateware for SDI-MIPI Bridge Tester"
     )
     parser.add_argument(
         "--video-format",
         default="720p60",
-        help='Video format ("720p60", "1080p25", "1080p30", "1080p50" or "1080p60")',
+        help="Video format (%s)"
+        % str(supported_formats_hd + supported_formats_3g + supported_data_rates),
     )
     parser.add_argument(
         "--lanes", type=int, default=2, help='Number of lanes ("2", or "4")'
@@ -186,7 +185,13 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    if args.video_format not in ("720p60", "1080p25", "1080p30", "1080p50", "1080p60"):
+    if args.video_format in supported_data_rates:
+        video_format = args.video_format
+    elif args.video_format in supported_formats_hd:
+        video_format = args.video_format[:-2] + "_hd"
+    elif args.video_format in supported_formats_3g:
+        video_format = args.video_format[:-2] + "_3g"
+    else:
         sys.exit("Unsupported video format")
 
     if args.lanes not in (2, 4):
@@ -202,7 +207,7 @@ if __name__ == "__main__":
     # create names
     four_lanes = True if args.lanes == 4 else False
     lanes_name_part = "4lanes" if four_lanes else "2lanes"
-    output_dir_rel = os.path.join("build", f"{args.video_format}-{lanes_name_part}")
+    output_dir_rel = os.path.join("build", f"{video_format}-{lanes_name_part}")
 
     output_dir = os.path.abspath(output_dir_rel)
     top_path = os.path.join(output_dir, "top.v")
@@ -223,7 +228,7 @@ if __name__ == "__main__":
     prepare_top_sources(output_dir, four_lanes)
 
     prepare_cmos2dphy_sources(
-        lattice_tpl_dir, patch_dir, output_dir, args.video_format, four_lanes
+        lattice_tpl_dir, patch_dir, output_dir, video_format, four_lanes
     )
     prepare_diamond_project(
         output_dir, PRJ_NAME, DEVICE, lpf_path, srcs, sbx_path, sbx_export_inst
